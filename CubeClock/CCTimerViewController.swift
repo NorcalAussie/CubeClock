@@ -14,12 +14,15 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var timesTableView: UITableView!
     
     var timerRunning = false
+    var needsReset = false
+    
+    var totalTime = 0.0
     
     var startTime = NSTimeInterval()
     
     var timer: NSTimer?
     var nextIndex = 0
-    var timesArray: [String] = []
+    var timesArray: [Double] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +33,10 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func tapDetected(sender: AnyObject) {
         if(!timerRunning){
-            timerLabel.text = "00:00:00"
+            if(needsReset){
+                timerLabel.text = "00:00:00"
+                needsReset = false
+            }
             
         }else{
             NSLog("stopping")
@@ -42,18 +48,26 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        if(!timerRunning){
-            NSLog("touchesBegan")
+        if(!needsReset){
+            if(!timerRunning){
+                NSLog("touchesBegan")
+                timerLabel.textColor = UIColor.redColor()
+                
+            }
         }
     }
     
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-        if(!timerRunning){
-            let aSelector : Selector = "updateTime"
-            timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: aSelector, userInfo: nil, repeats: true)
-            startTime = NSDate.timeIntervalSinceReferenceDate()
-            timerRunning = true
-            
+        if(!needsReset){
+            if(!timerRunning){
+                let aSelector : Selector = "updateTime"
+                timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: aSelector, userInfo: nil, repeats: true)
+                startTime = NSDate.timeIntervalSinceReferenceDate()
+                timerLabel.textColor = UIColor.blackColor()
+                timerRunning = true
+                needsReset = true
+                
+            }
         }
     }
     
@@ -65,8 +79,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func recordTime(){
-        
-        timesArray.insert(timerLabel.text!, atIndex: nextIndex)
+        timesArray.insert(totalTime, atIndex: nextIndex)
         nextIndex++
         self.timesTableView.reloadData()
         
@@ -75,23 +88,36 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     func updateTime(){
         
         if(timerRunning){
+            
             var currentTime = NSDate.timeIntervalSinceReferenceDate()
             var elapsedTime: NSTimeInterval = currentTime - startTime
             
-            let minutes = UInt8(elapsedTime / 60.0)
-            elapsedTime -= (NSTimeInterval(minutes) * 60)
-            
-            let seconds = UInt8(elapsedTime)
-            elapsedTime -= NSTimeInterval(seconds)
-            
-            let fraction = UInt8(elapsedTime * 100)
-            
-            let strMinutes = String(format: "%02d", arguments: [minutes])
-            let strSeconds = String(format: "%02d", arguments: [seconds])
-            let strFraction = String(format: "%02d", arguments: [fraction])
-            
-            timerLabel.text = "\(strMinutes):\(strSeconds):\(strFraction)"
+            timerLabel.text = convertTimeToFormattedString(elapsedTime)
+            self.totalTime = Double(elapsedTime)
         }
+        
+    }
+    
+    func convertTimeToFormattedString(elapsedTime: Double) -> String {
+        var theString = ""
+        
+        var elapsedTimeTemp = elapsedTime
+        
+        let minutes = UInt8(elapsedTime / 60.0)
+        elapsedTimeTemp -= (NSTimeInterval(minutes) * 60)
+        
+        let seconds = UInt8(elapsedTime)
+        elapsedTimeTemp -= NSTimeInterval(seconds)
+        
+        let fraction = UInt8(elapsedTimeTemp * 100)
+        
+        let strMinutes = String(format: "%02d", arguments: [minutes])
+        let strSeconds = String(format: "%02d", arguments: [seconds])
+        let strFraction = String(format: "%02d", arguments: [fraction])
+        
+        theString = "\(strMinutes):\(strSeconds):\(strFraction)"
+        
+        return theString
         
     }
     
@@ -102,7 +128,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell = self.timesTableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
         
-        cell.textLabel?.text = self.timesArray[indexPath.row]
+        cell.textLabel?.text = convertTimeToFormattedString(self.timesArray[indexPath.row])
         
         return cell
     }

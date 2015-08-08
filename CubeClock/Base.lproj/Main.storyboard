@@ -16,36 +16,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5g-eb-wGM">
-                                <rect key="frame" x="16" y="258" width="568" height="84"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="84" id="SR6-uL-p7u"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="60"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="15" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hVN-1h-ZF5">
-                                <rect key="frame" x="0.0" y="40" width="600" height="210"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="20" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hVN-1h-ZF5">
+                                <rect key="frame" x="0.0" y="40" width="140" height="560"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="uaG-GF-b6S"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="vIZ-0b-0IE"/>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="agg-kr-dVh"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="l5g-eb-wGM">
+                                <rect key="frame" x="148" y="258" width="436" height="84"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="84" id="seX-ar-1nG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="60"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="l5g-eb-wGM" firstAttribute="top" secondItem="hVN-1h-ZF5" secondAttribute="bottom" constant="8" id="1Ug-MV-R5r"/>
-                            <constraint firstItem="hVN-1h-ZF5" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="LJt-ZM-7LS"/>
-                            <constraint firstAttribute="centerY" secondItem="l5g-eb-wGM" secondAttribute="centerY" id="Mjx-hu-p51"/>
-                            <constraint firstAttribute="centerX" secondItem="hVN-1h-ZF5" secondAttribute="centerX" id="NAn-4H-PvV"/>
-                            <constraint firstItem="hVN-1h-ZF5" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="TCN-Kd-4Yq"/>
-                            <constraint firstAttribute="centerX" secondItem="l5g-eb-wGM" secondAttribute="centerX" id="V20-S7-eVc"/>
-                            <constraint firstAttribute="trailing" secondItem="l5g-eb-wGM" secondAttribute="trailing" constant="16" id="b7F-RW-1L6"/>
-                            <constraint firstItem="l5g-eb-wGM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="fDK-OP-Tpu"/>
-                            <constraint firstAttribute="trailing" secondItem="hVN-1h-ZF5" secondAttribute="trailing" id="wMV-tG-2r1"/>
+                            <constraint firstItem="l5g-eb-wGM" firstAttribute="leading" secondItem="hVN-1h-ZF5" secondAttribute="trailing" constant="8" id="BlB-zD-CTA"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="hVN-1h-ZF5" secondAttribute="bottom" id="HhP-6s-2rH"/>
+                            <constraint firstItem="hVN-1h-ZF5" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="O4k-OT-dDZ"/>
+                            <constraint firstAttribute="centerY" secondItem="l5g-eb-wGM" secondAttribute="centerY" id="aLj-1O-3JE"/>
+                            <constraint firstItem="hVN-1h-ZF5" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="aeb-r2-lfo"/>
+                            <constraint firstAttribute="centerX" secondItem="l5g-eb-wGM" secondAttribute="centerX" constant="-66" id="bRj-Z1-Ks3"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Ox8-IP-F2e" appends="YES" id="2dD-tJ-Imb"/>
