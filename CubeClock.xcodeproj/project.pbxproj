@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		C9F093051B75AD2C00101C83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F093041B75AD2C00101C83 /* AppDelegate.swift */; };
-		C9F093071B75AD2C00101C83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F093061B75AD2C00101C83 /* ViewController.swift */; };
 		C9F0930A1B75AD2C00101C83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9F093081B75AD2C00101C83 /* Main.storyboard */; };
 		C9F0930C1B75AD2C00101C83 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9F0930B1B75AD2C00101C83 /* Images.xcassets */; };
 		C9F0930F1B75AD2C00101C83 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9F0930D1B75AD2C00101C83 /* LaunchScreen.xib */; };
 		C9F0931B1B75AD2C00101C83 /* CubeClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F0931A1B75AD2C00101C83 /* CubeClockTests.swift */; };
+		C9F093251B75B28700101C83 /* CCTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F093241B75B28700101C83 /* CCTimerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +29,13 @@
 		C9F092FF1B75AD2C00101C83 /* CubeClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CubeClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F093031B75AD2C00101C83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9F093041B75AD2C00101C83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C9F093061B75AD2C00101C83 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C9F093091B75AD2C00101C83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C9F0930B1B75AD2C00101C83 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C9F0930E1B75AD2C00101C83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C9F093141B75AD2C00101C83 /* CubeClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CubeClockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F093191B75AD2C00101C83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9F0931A1B75AD2C00101C83 /* CubeClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeClockTests.swift; sourceTree = "<group>"; };
+		C9F093241B75B28700101C83 /* CCTimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCTimerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +77,8 @@
 		C9F093011B75AD2C00101C83 /* CubeClock */ = {
 			isa = PBXGroup;
 			children = (
+				C9F093241B75B28700101C83 /* CCTimerViewController.swift */,
 				C9F093041B75AD2C00101C83 /* AppDelegate.swift */,
-				C9F093061B75AD2C00101C83 /* ViewController.swift */,
 				C9F093081B75AD2C00101C83 /* Main.storyboard */,
 				C9F0930B1B75AD2C00101C83 /* Images.xcassets */,
 				C9F0930D1B75AD2C00101C83 /* LaunchScreen.xib */,
@@ -212,7 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9F093071B75AD2C00101C83 /* ViewController.swift in Sources */,
+				C9F093251B75B28700101C83 /* CCTimerViewController.swift in Sources */,
 				C9F093051B75AD2C00101C83 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
