@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C943FEB41B781A9F00497611 /* CCCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C943FEB21B781A9F00497611 /* CCCoreDataModel.xcdatamodeld */; };
 		C9F093051B75AD2C00101C83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F093041B75AD2C00101C83 /* AppDelegate.swift */; };
 		C9F0930A1B75AD2C00101C83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9F093081B75AD2C00101C83 /* Main.storyboard */; };
 		C9F0930C1B75AD2C00101C83 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9F0930B1B75AD2C00101C83 /* Images.xcassets */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C943FEB31B781A9F00497611 /* CCCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CCCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		C9F092FF1B75AD2C00101C83 /* CubeClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CubeClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F093031B75AD2C00101C83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9F093041B75AD2C00101C83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				C9F0930B1B75AD2C00101C83 /* Images.xcassets */,
 				C9F0930D1B75AD2C00101C83 /* LaunchScreen.xib */,
 				C9F093021B75AD2C00101C83 /* Supporting Files */,
+				C943FEB21B781A9F00497611 /* CCCoreDataModel.xcdatamodeld */,
 			);
 			path = CubeClock;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C943FEB41B781A9F00497611 /* CCCoreDataModel.xcdatamodeld in Sources */,
 				C9F093251B75B28700101C83 /* CCTimerViewController.swift in Sources */,
 				C9F093051B75AD2C00101C83 /* AppDelegate.swift in Sources */,
 			);
@@ -421,6 +425,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C943FEB21B781A9F00497611 /* CCCoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C943FEB31B781A9F00497611 /* CCCoreDataModel.xcdatamodel */,
+			);
+			currentVersion = C943FEB31B781A9F00497611 /* CCCoreDataModel.xcdatamodel */;
+			path = CCCoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C9F092F71B75AD2B00101C83 /* Project object */;
 }

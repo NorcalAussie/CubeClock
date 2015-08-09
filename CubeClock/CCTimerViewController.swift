@@ -49,6 +49,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         timerLabel.text = "00:00:00"
         needsReset = false
         timesTableView.reloadData()
+        nextIndex = 0
         
     }
     
@@ -130,8 +131,47 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
             if (timesArray.count >= 10) {
                 averageTenLabel.text = convertTimeToFormattedString(calcAverages().averageTen)
             }
+            if (timesArray.count >= 5) {
+                threeOfFiveLabel.text = convertTimeToFormattedString(calcOfAverage(5))
+            }
+            if (timesArray.count >= 12) {
+                tenOfTwelveLabel.text = convertTimeToFormattedString(calcOfAverage(12))
+            }
         }
         
+    }
+    
+    func calcOfAverage(totalTrials: Int) -> Double{
+        var avg = 0.0
+        var tempIndex = 1
+        var tempArrayIndex = 0
+        var tempArray: [Double] = []
+        
+        //Put last /(totalTrials) into a new array
+        for times in timesArray {
+            if (timesArray.count - tempIndex < totalTrials) {
+                tempArray.insert(times, atIndex: tempArrayIndex)
+                tempArrayIndex++
+            }
+            
+            tempIndex++
+        }
+        
+        //Sort array and calculate average using all but first and last element
+        tempArray.sort(>)
+        var sum = 0.0
+        tempIndex = 1
+        for time in tempArray {
+            if (tempIndex != 1 && tempIndex < tempArray.count) {
+                sum += time
+            }
+            
+            tempIndex++
+        }
+        
+        avg = sum/Double((totalTrials - 2))
+        
+        return avg
     }
     
     func calcAverages() -> (average: Double, averageFive: Double, averageTen: Double, bestTime: Double){
