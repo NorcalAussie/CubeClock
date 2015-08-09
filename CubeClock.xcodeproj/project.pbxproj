@@ -409,6 +409,7 @@
 				C9F093201B75AD2C00101C83 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C9F093211B75AD2C00101C83 /* Build configuration list for PBXNativeTarget "CubeClockTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +418,7 @@
 				C9F093231B75AD2C00101C83 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

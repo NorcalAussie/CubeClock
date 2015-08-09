@@ -13,6 +13,13 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var timesTableView: UITableView!
     
+    @IBOutlet weak var averageLabel: UILabel!
+    @IBOutlet weak var averageFiveLabel: UILabel!
+    @IBOutlet weak var averageTenLabel: UILabel!
+    @IBOutlet weak var threeOfFiveLabel: UILabel!
+    @IBOutlet weak var tenOfTwelveLabel: UILabel!
+    @IBOutlet weak var bestLabel: UILabel!
+    
     var timerRunning = false
     var needsReset = false
     
@@ -31,6 +38,20 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     }
     
+    @IBAction func clearPressed(sender: AnyObject) {
+        timesArray.removeAll(keepCapacity: false)
+        averageLabel.text = "-"
+        bestLabel.text = "-"
+        averageFiveLabel.text = "-"
+        averageTenLabel.text = "-"
+        threeOfFiveLabel.text = "-"
+        tenOfTwelveLabel.text = "-"
+        timerLabel.text = "00:00:00"
+        needsReset = false
+        timesTableView.reloadData()
+        
+    }
+    
     @IBAction func tapDetected(sender: AnyObject) {
         if(!timerRunning){
             if(needsReset){
@@ -42,6 +63,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
             NSLog("stopping")
             stopTimer()
             recordTime()
+            updateStats()
             
         }
     
@@ -98,6 +120,53 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
+    func updateStats(){
+        if(!timesArray.isEmpty) {
+            averageLabel.text = convertTimeToFormattedString(calcAverages().average)
+            bestLabel.text = convertTimeToFormattedString(calcAverages().bestTime)
+            if (timesArray.count >= 5) {
+                averageFiveLabel.text = convertTimeToFormattedString(calcAverages().averageFive)
+            }
+            if (timesArray.count >= 10) {
+                averageTenLabel.text = convertTimeToFormattedString(calcAverages().averageTen)
+            }
+        }
+        
+    }
+    
+    func calcAverages() -> (average: Double, averageFive: Double, averageTen: Double, bestTime: Double){
+        var sum = 0.0
+        var lastFiveSum = 0.0
+        var lastTenSum = 0.0
+        var bestTime = timesArray[0]
+        var tempIndex = 1
+        
+        for times in timesArray {
+            sum += times
+            
+            if (timesArray.count >= 5) && (timesArray.count - tempIndex < 5){
+                lastFiveSum += times
+            }
+            
+            if (timesArray.count >= 10) && (timesArray.count - tempIndex < 10){
+                lastTenSum += times
+            }
+            
+            if times < bestTime{
+                bestTime = times
+            }
+            
+            tempIndex++
+        }
+        
+        var avg: Double = sum/Double((timesArray.count))
+        var avgFive: Double = lastFiveSum/5.0
+        var avgTen: Double = lastTenSum/10.0
+        
+        return (avg, avgFive, avgTen, bestTime)
+    }
+    
+    
     func convertTimeToFormattedString(elapsedTime: Double) -> String {
         var theString = ""
         
@@ -128,6 +197,8 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell = self.timesTableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
         
+        cell.textLabel?.font = UIFont(name: "HelveticaNeue-Light",
+            size: 17.0)
         cell.textLabel?.text = convertTimeToFormattedString(self.timesArray[indexPath.row])
         
         return cell
