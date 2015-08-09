@@ -147,7 +147,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         var tempArrayIndex = 0
         var tempArray: [Double] = []
         
-        //Put last /(totalTrials) into a new array
+        //Put last 5 or 12 times into a new array
         for times in timesArray {
             if (timesArray.count - tempIndex < totalTrials) {
                 tempArray.insert(times, atIndex: tempArrayIndex)
@@ -239,7 +239,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         cell.textLabel?.font = UIFont(name: "HelveticaNeue-Light",
             size: 17.0)
-        cell.textLabel?.text = convertTimeToFormattedString(self.timesArray[indexPath.row])
+        cell.textLabel?.text = String(format: "%d. %@", (self.timesArray.count - indexPath.row), convertTimeToFormattedString(self.timesArray[(self.timesArray.count - indexPath.row - 1)]))
         
         return cell
     }
