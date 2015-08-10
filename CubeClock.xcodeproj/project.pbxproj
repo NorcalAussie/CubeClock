@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84A69A4F69E8445DA7C80004 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E66E0EC4BC313677B7291E5C /* libPods.a */; };
 		C943FEB41B781A9F00497611 /* CCCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C943FEB21B781A9F00497611 /* CCCoreDataModel.xcdatamodeld */; };
 		C9F093051B75AD2C00101C83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F093041B75AD2C00101C83 /* AppDelegate.swift */; };
 		C9F0930A1B75AD2C00101C83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9F093081B75AD2C00101C83 /* Main.storyboard */; };
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		66407DD52281C72AD8B7331A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		7F7181980210D0B97EFD6D80 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C943FEB31B781A9F00497611 /* CCCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CCCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		C9F092FF1B75AD2C00101C83 /* CubeClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CubeClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F093031B75AD2C00101C83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -38,6 +41,7 @@
 		C9F093191B75AD2C00101C83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9F0931A1B75AD2C00101C83 /* CubeClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeClockTests.swift; sourceTree = "<group>"; };
 		C9F093241B75B28700101C83 /* CCTimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCTimerViewController.swift; sourceTree = "<group>"; };
+		E66E0EC4BC313677B7291E5C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A69A4F69E8445DA7C80004 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +63,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		009301787D2BEEB7CF8F9771 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E66E0EC4BC313677B7291E5C /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		44117BAC3BB3C93EA4964C0B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7F7181980210D0B97EFD6D80 /* Pods.debug.xcconfig */,
+				66407DD52281C72AD8B7331A /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C9F092F61B75AD2B00101C83 = {
 			isa = PBXGroup;
 			children = (
 				C9F093011B75AD2C00101C83 /* CubeClock */,
 				C9F093171B75AD2C00101C83 /* CubeClockTests */,
 				C9F093001B75AD2C00101C83 /* Products */,
+				44117BAC3BB3C93EA4964C0B /* Pods */,
+				009301787D2BEEB7CF8F9771 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,9 +146,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9F0931E1B75AD2C00101C83 /* Build configuration list for PBXNativeTarget "CubeClock" */;
 			buildPhases = (
+				92AE271C9F6F563F24D98986 /* Check Pods Manifest.lock */,
 				C9F092FB1B75AD2C00101C83 /* Sources */,
 				C9F092FC1B75AD2C00101C83 /* Frameworks */,
 				C9F092FD1B75AD2C00101C83 /* Resources */,
+				F5B10B705C7BC14F9BE067AA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -209,6 +235,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		92AE271C9F6F563F24D98986 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F5B10B705C7BC14F9BE067AA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C9F092FB1B75AD2C00101C83 /* Sources */ = {
@@ -342,6 +401,7 @@
 		};
 		C9F0931F1B75AD2C00101C83 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F7181980210D0B97EFD6D80 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CubeClock/Info.plist;
@@ -352,6 +412,7 @@
 		};
 		C9F093201B75AD2C00101C83 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66407DD52281C72AD8B7331A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CubeClock/Info.plist;
