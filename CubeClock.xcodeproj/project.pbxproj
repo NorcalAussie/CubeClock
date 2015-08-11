@@ -31,6 +31,7 @@
 		66407DD52281C72AD8B7331A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7F7181980210D0B97EFD6D80 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C943FEB31B781A9F00497611 /* CCCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CCCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		C97478991B798EA70065A2E1 /* CubeClock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CubeClock-Bridging-Header.h"; sourceTree = "<group>"; };
 		C9F092FF1B75AD2C00101C83 /* CubeClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CubeClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F093031B75AD2C00101C83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9F093041B75AD2C00101C83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +118,7 @@
 		C9F093021B75AD2C00101C83 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C97478991B798EA70065A2E1 /* CubeClock-Bridging-Header.h */,
 				C9F093031B75AD2C00101C83 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -358,6 +360,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -395,6 +398,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

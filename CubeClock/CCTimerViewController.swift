@@ -35,6 +35,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         
         self.timesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
 
     }
     
@@ -127,16 +128,24 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
             bestLabel.text = convertTimeToFormattedString(calcAverages().bestTime)
             if (timesArray.count >= 5) {
                 averageFiveLabel.text = convertTimeToFormattedString(calcAverages().averageFive)
+                threeOfFiveLabel.text = convertTimeToFormattedString(calcOfAverage(5))
+            }else{
+                averageFiveLabel.text = "-"
+                threeOfFiveLabel.text = "-"
             }
             if (timesArray.count >= 10) {
                 averageTenLabel.text = convertTimeToFormattedString(calcAverages().averageTen)
             }
-            if (timesArray.count >= 5) {
-                threeOfFiveLabel.text = convertTimeToFormattedString(calcOfAverage(5))
+            else{
+                averageTenLabel.text = "-"
             }
             if (timesArray.count >= 12) {
                 tenOfTwelveLabel.text = convertTimeToFormattedString(calcOfAverage(12))
+            }else{
+                tenOfTwelveLabel.text = "-"
             }
+        }else{
+            clearPressed(self)
         }
         
     }
@@ -246,6 +255,19 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+        
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        timesArray.removeAtIndex((self.timesArray.count - (indexPath.row + 1)))
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        nextIndex--
+        updateStats()
+        tableView.reloadData()
     }
 
 }
