@@ -18,6 +18,12 @@ class CCTime {
         
     }
     
+    init(){
+        self.time = 0.0
+        self.timeString = ""
+        
+    }
+    
 }
 
 

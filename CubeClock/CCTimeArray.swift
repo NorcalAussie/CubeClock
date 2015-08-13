@@ -9,17 +9,17 @@
 import Foundation
 
 class CCTimeArray{
-    var timesArray: [Double] = []
+    var theArray: [CCTime] = []
     
-    func calcOfAverage(totalTrials: Int) -> Double{
+    func calcOfAverage(totalTrials: Int) -> CCTime{
         var avg = 0.0
         var tempIndex = 1
         var tempArrayIndex = 0
-        var tempArray: [Double] = []
+        var tempArray: [CCTime] = []
         
         //Put last 5 or 12 times into a new array
-        for times in timesArray {
-            if (timesArray.count - tempIndex < totalTrials) {
+        for times in theArray {
+            if (theArray.count - tempIndex < totalTrials) {
                 tempArray.insert(times, atIndex: tempArrayIndex)
                 tempArrayIndex++
             }
@@ -28,52 +28,60 @@ class CCTimeArray{
         }
         
         //Sort array and calculate average using all but first and last element
-        tempArray.sort(>)
+        tempArray.sort({ $0.time > $1.time })
         var sum = 0.0
         tempIndex = 1
         for time in tempArray {
             if (tempIndex != 1 && tempIndex < tempArray.count) {
-                sum += time
+                sum += time.time
             }
             
             tempIndex++
         }
         
         avg = sum/Double((totalTrials - 2))
+        let avgTime = CCTime(elapsedTime: avg)
         
-        return avg
+        return avgTime
     }
     
-    func calcAverages() -> (average: Double, averageFive: Double, averageTen: Double, bestTime: Double){
+    func calcAverages() -> (average: CCTime, averageFive: CCTime, averageTen: CCTime, bestTime: CCTime){
         var sum = 0.0
         var lastFiveSum = 0.0
         var lastTenSum = 0.0
-        var bestTime = timesArray[0]
+        var best = theArray[0].time
         var tempIndex = 1
         
-        for times in timesArray {
-            sum += times
+        for times in theArray {
+            sum += times.time
             
-            if (timesArray.count >= 5) && (timesArray.count - tempIndex < 5){
-                lastFiveSum += times
+            if (theArray.count >= 5) && (theArray.count - tempIndex < 5){
+                lastFiveSum += times.time
             }
             
-            if (timesArray.count >= 10) && (timesArray.count - tempIndex < 10){
-                lastTenSum += times
+            if (theArray.count >= 10) && (theArray.count - tempIndex < 10){
+                lastTenSum += times.time
             }
             
-            if times < bestTime{
-                bestTime = times
+            if times.time < best{
+                best = times.time
             }
             
             tempIndex++
         }
         
-        var avg: Double = sum/Double((timesArray.count))
-        var avgFive: Double = lastFiveSum/5.0
-        var avgTen: Double = lastTenSum/10.0
+        let bestTime = CCTime(elapsedTime: best)
         
-        return (avg, avgFive, avgTen, bestTime)
+        var avg: Double = sum/Double((theArray.count))
+        let avgTime = CCTime(elapsedTime: avg)
+        
+        var avgFive: Double = lastFiveSum/5.0
+        let avgFiveTime = CCTime(elapsedTime: avg)
+        
+        var avgTen: Double = lastTenSum/10.0
+        let avgTenTime = CCTime(elapsedTime: avg)
+        
+        return (avgTime, avgFiveTime, avgTenTime, bestTime)
     }
 }
 
