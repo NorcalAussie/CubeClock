@@ -8,10 +8,8 @@
 
 import UIKit
 
-
 class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    //Label Outlets
+    // MARK: - Outlets
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var averageLabel: UILabel!
     @IBOutlet weak var averageFiveLabel: UILabel!
@@ -23,7 +21,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     //Table View Outlet
     @IBOutlet weak var timesTableView: UITableView!
     
-    //Local Variables
+    // MARK: - Local Variables
     var timerRunning = false
     var needsReset = false
     var totalTime = 0.0
@@ -41,7 +39,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.timesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
-    //Local Functions
+    // MARK: - Local Functions
     func stopTimer() {
         timer!.invalidate()
         timer = nil
@@ -91,7 +89,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
-    //IBActions
+    // MARK: - IBActions
     @IBAction func clearPressed(sender: AnyObject) {
         timesArray.theArray.removeAll(keepCapacity: false)
         averageLabel.text = "-"
@@ -121,7 +119,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    //Touch recogniers
+    // MARK: - Touch recognizers
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         if(!needsReset) {
             if(!timerRunning) {
@@ -144,6 +142,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    // MARK: - TableView  Functions
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.timesArray.theArray.count
     }
@@ -169,5 +168,5 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         updateStats()
         tableView.reloadData()
     }
-
+    
 }

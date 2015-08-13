@@ -23,7 +23,6 @@ class CCTimeArray{
                 tempArray.insert(times, atIndex: tempArrayIndex)
                 tempArrayIndex++
             }
-            
             tempIndex++
         }
         
