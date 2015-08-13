@@ -8,25 +8,31 @@
 
 import Foundation
 
-class CCTime {
+class CCTime: NSObject, NSCoding {
     var time: Double = 0.0
     var timeString: String = ""
     
-    init (elapsedTime: Double){
+    init (elapsedTime: Double) {
         self.time = elapsedTime
         self.timeString = convertTimeToFormattedString(elapsedTime)
-        
     }
     
-    init(){
-        self.time = 0.0
-        self.timeString = ""
-        
+    override init() {
+       super.init()
     }
     
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeDouble(time, forKey: "time")
+        aCoder.encodeObject(timeString, forKey: "timeString")
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init()
+        
+        time = aDecoder.decodeDoubleForKey("time")
+        timeString = aDecoder.decodeObjectForKey("timeString") as! String
+    }
 }
-
-
 
 func convertTimeToFormattedString(elapsedTime: Double) -> String {
     var theString = ""
@@ -48,5 +54,4 @@ func convertTimeToFormattedString(elapsedTime: Double) -> String {
     theString = "\(strMinutes):\(strSeconds):\(strFraction)"
     
     return theString
-    
 }

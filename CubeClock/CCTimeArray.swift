@@ -8,8 +8,8 @@
 
 import Foundation
 
-class CCTimeArray{
-    var theArray: [CCTime] = []
+class CCTimeArray {
+    var theArray:[CCTime] = []
     
     func calcOfAverage(totalTrials: Int) -> CCTime{
         var avg = 0.0

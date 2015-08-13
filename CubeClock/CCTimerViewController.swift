@@ -31,14 +31,36 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //TimesArray and Time Objects created
     let timesArray = CCTimeArray()
-    var time = CCTime()
+    var allTimes:NSMutableArray = []
+    var time:CCTime!
     
+    var documentDirectories:NSArray!
+    var documentDirectory:String!
+    var path:String!
+    
+    // MARK: - Device Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.timesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        // Create a filepath for archiving.
+        documentDirectories = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        
+        // Get document directory from that list
+        documentDirectory = documentDirectories.objectAtIndex(0) as! String
+        
+        // append with the .archive file name
+        path = documentDirectory.stringByAppendingPathComponent("CubeClock.archive")
+        
+        if (NSKeyedUnarchiver.unarchiveObjectWithFile(path) != nil) {
+            timesArray.theArray = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as! NSArray as! [CCTime]
+            updateStats()
+            nextIndex = timesArray.theArray.count
+            timesTableView.reloadData()
+        }
     }
-    
+
     // MARK: - Local Functions
     func stopTimer() {
         timer!.invalidate()
@@ -49,6 +71,8 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     func recordTime() {
         timesArray.theArray.insert(time, atIndex: nextIndex)
         nextIndex++
+        saveData()
+        
         self.timesTableView.reloadData()
     }
     
@@ -88,10 +112,21 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    func saveData() {
+        //Archive array
+        if NSKeyedArchiver.archiveRootObject(timesArray.theArray, toFile: path) {
+            println("Success writing to file!")
+        } else {
+            println("Unable to write to file!")
+        }
+    }
+    
     
     // MARK: - IBActions
     @IBAction func clearPressed(sender: AnyObject) {
         timesArray.theArray.removeAll(keepCapacity: false)
+        allTimes.removeAllObjects()
+        saveData()
         averageLabel.text = "-"
         bestLabel.text = "-"
         averageFiveLabel.text = "-"
