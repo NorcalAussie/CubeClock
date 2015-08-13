@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>37F0B3AE-9122-4F24-9E65-6C4852E852D4</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CubeClock</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3DE8F6B315615C313B47C6055D8391D1E7E55774</key>
+		<string>https://github.com/NorcalAussie/CubeClock.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CubeClock.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3DE8F6B315615C313B47C6055D8391D1E7E55774</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/NorcalAussie/CubeClock.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3DE8F6B315615C313B47C6055D8391D1E7E55774</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3DE8F6B315615C313B47C6055D8391D1E7E55774</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CubeClock</string>
+		</dict>
+	</array>
+</dict>
+</plist>
