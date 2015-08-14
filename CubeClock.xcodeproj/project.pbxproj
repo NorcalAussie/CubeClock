@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C943FEB41B781A9F00497611 /* CCCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C943FEB21B781A9F00497611 /* CCCoreDataModel.xcdatamodeld */; };
+		C94447DA1B7D94FA00A210A9 /* CCScramble.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94447D91B7D94FA00A210A9 /* CCScramble.swift */; };
 		C96E9FC41B7C2B17005857F6 /* CCTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E9FC31B7C2B17005857F6 /* CCTime.swift */; };
 		C96E9FC61B7C2C5C005857F6 /* CCTimeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E9FC51B7C2C5C005857F6 /* CCTimeArray.swift */; };
 		C9F093051B75AD2C00101C83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F093041B75AD2C00101C83 /* AppDelegate.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		98661A26EB4390233106678B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C943FEB31B781A9F00497611 /* CCCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CCCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		C94447D91B7D94FA00A210A9 /* CCScramble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCScramble.swift; sourceTree = "<group>"; };
 		C96E9FC31B7C2B17005857F6 /* CCTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCTime.swift; sourceTree = "<group>"; };
 		C96E9FC51B7C2C5C005857F6 /* CCTimeArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCTimeArray.swift; sourceTree = "<group>"; };
 		C97478991B798EA70065A2E1 /* CubeClock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CubeClock-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				C9F093241B75B28700101C83 /* CCTimerViewController.swift */,
 				C96E9FC31B7C2B17005857F6 /* CCTime.swift */,
 				C96E9FC51B7C2C5C005857F6 /* CCTimeArray.swift */,
+				C94447D91B7D94FA00A210A9 /* CCScramble.swift */,
 				C9F093041B75AD2C00101C83 /* AppDelegate.swift */,
 				C9F093081B75AD2C00101C83 /* Main.storyboard */,
 				C9F0930B1B75AD2C00101C83 /* Images.xcassets */,
@@ -282,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C94447DA1B7D94FA00A210A9 /* CCScramble.swift in Sources */,
 				C96E9FC61B7C2C5C005857F6 /* CCTimeArray.swift in Sources */,
 				C96E9FC41B7C2B17005857F6 /* CCTime.swift in Sources */,
 				C943FEB41B781A9F00497611 /* CCCoreDataModel.xcdatamodeld in Sources */,

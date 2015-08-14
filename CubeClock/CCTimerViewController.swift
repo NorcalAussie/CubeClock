@@ -17,6 +17,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var threeOfFiveLabel: UILabel!
     @IBOutlet weak var tenOfTwelveLabel: UILabel!
     @IBOutlet weak var bestLabel: UILabel!
+    @IBOutlet weak var scrambleLabel: UILabel!
     
     //Table View Outlet
     @IBOutlet weak var timesTableView: UITableView!
@@ -43,6 +44,10 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         
         self.timesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        //Generate Scrable and display
+        let scramble = CCScramble()
+        scrambleLabel.text = scramble.scrambleString
         
         // Create a filepath for archiving.
         documentDirectories = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
@@ -196,8 +201,8 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell = self.timesTableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
         
-        cell.textLabel?.font = UIFont(name: "HelveticaNeue-Light",
-            size: 17.0)
+        cell.textLabel?.font = UIFont(name: "DINAlternate-Bold",
+            size: 20.0)
         cell.textLabel?.text = String(format: "%d. %@", (self.timesArray.theArray.count - indexPath.row), timesArray.theArray[(timesArray.theArray.count - indexPath.row - 1)].timeString)
         
         return cell
