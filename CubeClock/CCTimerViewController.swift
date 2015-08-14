@@ -45,10 +45,6 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.timesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        //Generate Scrable and display
-        let scramble = CCScramble()
-        scrambleLabel.text = scramble.scrambleString
-        
         // Create a filepath for archiving.
         documentDirectories = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         
@@ -64,6 +60,8 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
             nextIndex = timesArray.theArray.count
             timesTableView.reloadData()
         }
+        
+        getNewScramble()
     }
 
     // MARK: - Local Functions
@@ -140,6 +138,13 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         needsReset = false
         timesTableView.reloadData()
         nextIndex = 0
+        getNewScramble()
+    }
+    
+    func getNewScramble() {
+        //Generate Scrable and display
+        let scramble = CCScramble()
+        scrambleLabel.text = scramble.scrambleString
     }
     
     
@@ -160,6 +165,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
             if (needsReset) {
                 timerLabel.text = "00:00:00"
                 needsReset = false
+                getNewScramble()
             }
             
         } else {
@@ -202,7 +208,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         var cell:UITableViewCell = self.timesTableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
         
         cell.textLabel?.font = UIFont(name: "DINAlternate-Bold",
-            size: 20.0)
+            size: 15.0)
         cell.textLabel?.text = String(format: "%d. %@", (self.timesArray.theArray.count - indexPath.row), timesArray.theArray[(timesArray.theArray.count - indexPath.row - 1)].timeString)
         
         return cell

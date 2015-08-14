@@ -270,7 +270,9 @@
                                     <constraint firstItem="xPa-AA-lg0" firstAttribute="top" secondItem="a38-Tv-3V4" secondAttribute="top" constant="8" id="nsE-JS-ADC"/>
                                     <constraint firstItem="5hm-Vk-lBz" firstAttribute="top" secondItem="Xul-7q-SuX" secondAttribute="bottom" constant="8" id="omK-1M-MM9"/>
                                     <constraint firstItem="cT7-gE-xUH" firstAttribute="top" secondItem="IQX-hf-CMP" secondAttribute="bottom" constant="8" id="omo-9O-OVi"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="rFS-bb-gnz"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="rFS-bb-gnz">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="90"/>
+                                    </constraint>
                                     <constraint firstAttribute="trailing" secondItem="xPa-AA-lg0" secondAttribute="trailing" constant="8" id="rHE-W7-GgC"/>
                                     <constraint firstItem="0tw-gi-rJn" firstAttribute="trailing" secondItem="a38-Tv-3V4" secondAttribute="trailingMargin" id="spx-FA-KV8"/>
                                     <constraint firstItem="rjV-8X-QZr" firstAttribute="leading" secondItem="a38-Tv-3V4" secondAttribute="leading" constant="8" id="sxR-0t-jbJ"/>
@@ -286,7 +288,9 @@
                                 <rect key="frame" x="0.0" y="28" width="125" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="125" id="Fhr-cu-gag"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="125" id="Fhr-cu-gag">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="100"/>
+                                    </constraint>
                                 </constraints>
                                 <variation key="widthClass=compact" ambiguous="YES">
                                     <rect key="frame" x="0.0" y="28" width="0.0" height="552"/>
@@ -313,6 +317,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -329,11 +336,15 @@
                             <constraint firstAttribute="centerX" secondItem="hcQ-em-cWd" secondAttribute="centerX" id="Ym2-jX-UUp"/>
                             <constraint firstItem="hVN-1h-ZF5" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="Zb6-Xx-Lbc"/>
                             <constraint firstItem="a38-Tv-3V4" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="dS2-e8-R6L"/>
-                            <constraint firstItem="a38-Tv-3V4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="l5g-eb-wGM" secondAttribute="trailing" constant="25" id="dtA-J5-QDP"/>
+                            <constraint firstItem="a38-Tv-3V4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="l5g-eb-wGM" secondAttribute="trailing" constant="25" id="dtA-J5-QDP">
+                                <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                            </constraint>
                             <constraint firstAttribute="centerY" secondItem="l5g-eb-wGM" secondAttribute="centerY" id="hiT-Of-41W"/>
                             <constraint firstAttribute="centerX" secondItem="l5g-eb-wGM" secondAttribute="centerX" id="j30-AM-mD4"/>
                             <constraint firstItem="hVN-1h-ZF5" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="nK6-RV-jYc"/>
-                            <constraint firstItem="l5g-eb-wGM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hVN-1h-ZF5" secondAttribute="trailing" constant="25" id="rmQ-Lv-4RP"/>
+                            <constraint firstItem="l5g-eb-wGM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hVN-1h-ZF5" secondAttribute="trailing" constant="25" id="rmQ-Lv-4RP">
+                                <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                            </constraint>
                             <constraint firstItem="2OF-FS-jZq" firstAttribute="top" secondItem="hVN-1h-ZF5" secondAttribute="bottom" constant="8" id="tdv-N3-oZk"/>
                         </constraints>
                         <connections>
