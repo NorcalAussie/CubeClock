@@ -121,9 +121,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    
-    // MARK: - IBActions
-    @IBAction func clearPressed(sender: AnyObject) {
+    func clearData() {
         timesArray.theArray.removeAll(keepCapacity: false)
         allTimes.removeAllObjects()
         saveData()
@@ -137,6 +135,19 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         needsReset = false
         timesTableView.reloadData()
         nextIndex = 0
+    }
+    
+    
+    // MARK: - IBActions
+    @IBAction func clearPressed(sender: AnyObject) {
+        if (!timesArray.theArray.isEmpty) {
+            let alert = UIAlertController(title: nil, message: "Are you sure?", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Clear", style: .Default, handler: { (alertAction) -> Void in
+                self.clearData()
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+            presentViewController(alert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func tapDetected(sender: AnyObject) {

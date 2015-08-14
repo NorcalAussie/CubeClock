@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="l5g-eb-wGM">
-                                <rect key="frame" x="190" y="255" width="220" height="90"/>
+                                <rect key="frame" x="154" y="255" width="292" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="d1q-aa-x8A"/>
                                     <constraint firstAttribute="width" secondItem="l5g-eb-wGM" secondAttribute="height" multiplier="16:5" id="zR3-tc-Ivu"/>
@@ -38,130 +38,160 @@
                                 </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a38-Tv-3V4">
-                                <rect key="frame" x="440" y="28" width="160" height="552"/>
+                                <rect key="frame" x="500" y="28" width="100" height="552"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPa-AA-lg0">
-                                        <rect key="frame" x="8" y="8" width="144" height="21"/>
+                                        <rect key="frame" x="8" y="8" width="84" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="8" y="8" width="63" height="21"/>
                                         </variation>
+                                        <variation key="heightClass=compact-widthClass=compact">
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                        </variation>
                                         <variation key="heightClass=compact-widthClass=regular" ambiguous="YES">
                                             <rect key="frame" x="8" y="8" width="194" height="21"/>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xul-7q-SuX">
-                                        <rect key="frame" x="8" y="37" width="144" height="21"/>
+                                        <rect key="frame" x="8" y="37" width="84" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="8" y="37" width="67" height="21"/>
                                         </variation>
+                                        <variation key="heightClass=compact-widthClass=compact">
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                        </variation>
                                         <variation key="heightClass=compact-widthClass=regular" ambiguous="YES">
                                             <rect key="frame" x="8" y="37" width="194" height="21"/>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average 5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hm-Vk-lBz">
-                                        <rect key="frame" x="8" y="66" width="144" height="21"/>
+                                        <rect key="frame" x="8" y="66" width="84" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="8" y="66" width="77" height="21"/>
                                         </variation>
+                                        <variation key="heightClass=compact-widthClass=compact">
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                        </variation>
                                         <variation key="heightClass=compact-widthClass=regular" ambiguous="YES">
                                             <rect key="frame" x="8" y="66" width="194" height="21"/>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tw-gi-rJn">
-                                        <rect key="frame" x="8" y="95" width="144" height="21"/>
+                                        <rect key="frame" x="8" y="95" width="84" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="8" y="95" width="67" height="21"/>
                                         </variation>
+                                        <variation key="heightClass=compact-widthClass=compact">
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                        </variation>
                                         <variation key="heightClass=compact-widthClass=regular" ambiguous="YES">
                                             <rect key="frame" x="8" y="95" width="194" height="21"/>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average 10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiJ-Nx-moP">
-                                        <rect key="frame" x="8" y="124" width="144" height="21"/>
+                                        <rect key="frame" x="8" y="124" width="84" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="8" y="124" width="87" height="21"/>
                                         </variation>
+                                        <variation key="heightClass=compact-widthClass=compact">
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                        </variation>
                                         <variation key="heightClass=compact-widthClass=regular" ambiguous="YES">
                                             <rect key="frame" x="8" y="124" width="194" height="21"/>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ius-Yb-IcO">
-                                        <rect key="frame" x="8" y="153" width="144" height="21"/>
+                                        <rect key="frame" x="8" y="153" width="84" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="8" y="153" width="67" height="21"/>
                                         </variation>
+                                        <variation key="heightClass=compact-widthClass=compact">
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                        </variation>
                                         <variation key="heightClass=compact-widthClass=regular" ambiguous="YES">
                                             <rect key="frame" x="8" y="153" width="194" height="21"/>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 of 5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51e-rv-8Hp">
-                                        <rect key="frame" x="8" y="182" width="144" height="21"/>
+                                        <rect key="frame" x="8" y="182" width="84" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="8" y="182" width="44" height="21"/>
                                         </variation>
+                                        <variation key="heightClass=compact-widthClass=compact">
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                        </variation>
                                         <variation key="heightClass=compact-widthClass=regular" ambiguous="YES">
                                             <rect key="frame" x="8" y="182" width="194" height="21"/>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQX-hf-CMP">
-                                        <rect key="frame" x="8" y="211" width="144" height="21"/>
+                                        <rect key="frame" x="8" y="211" width="84" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="8" y="211" width="67" height="21"/>
                                         </variation>
+                                        <variation key="heightClass=compact-widthClass=compact">
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                        </variation>
                                         <variation key="heightClass=compact-widthClass=regular" ambiguous="YES">
                                             <rect key="frame" x="8" y="211" width="194" height="21"/>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 of 12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cT7-gE-xUH">
-                                        <rect key="frame" x="8" y="240" width="144" height="21"/>
+                                        <rect key="frame" x="8" y="240" width="84" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="8" y="240" width="63" height="21"/>
                                         </variation>
+                                        <variation key="heightClass=compact-widthClass=compact">
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                        </variation>
                                         <variation key="heightClass=compact-widthClass=regular" ambiguous="YES">
                                             <rect key="frame" x="8" y="240" width="194" height="21"/>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DW0-Iw-e6j">
-                                        <rect key="frame" x="8" y="269" width="144" height="21"/>
+                                        <rect key="frame" x="8" y="269" width="84" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="8" y="269" width="67" height="21"/>
                                         </variation>
+                                        <variation key="heightClass=compact-widthClass=compact">
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                        </variation>
                                         <variation key="heightClass=compact-widthClass=regular" ambiguous="YES">
                                             <rect key="frame" x="8" y="269" width="194" height="21"/>
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jz6-rl-YSB">
-                                        <rect key="frame" x="8" y="298" width="144" height="21"/>
+                                        <rect key="frame" x="8" y="298" width="84" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -169,6 +199,7 @@
                                             <rect key="frame" x="8" y="298" width="35" height="21"/>
                                         </variation>
                                         <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                             <rect key="frame" x="8" y="298" width="35" height="21"/>
                                         </variation>
                                         <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES">
@@ -176,7 +207,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjV-8X-QZr">
-                                        <rect key="frame" x="8" y="327" width="144" height="21"/>
+                                        <rect key="frame" x="8" y="327" width="84" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -184,6 +215,7 @@
                                             <rect key="frame" x="8" y="327" width="67" height="21"/>
                                         </variation>
                                         <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                             <rect key="frame" x="8" y="327" width="67" height="21"/>
                                         </variation>
                                         <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES">
@@ -236,10 +268,10 @@
                                 </variation>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="25" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hVN-1h-ZF5">
-                                <rect key="frame" x="0.0" y="28" width="150" height="504"/>
+                                <rect key="frame" x="0.0" y="28" width="125" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="Fhr-cu-gag"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="125" id="Fhr-cu-gag"/>
                                 </constraints>
                                 <variation key="widthClass=compact" ambiguous="YES">
                                     <rect key="frame" x="0.0" y="28" width="0.0" height="552"/>
@@ -250,7 +282,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2OF-FS-jZq">
-                                <rect key="frame" x="0.0" y="540" width="150" height="40"/>
+                                <rect key="frame" x="0.0" y="540" width="125" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="TfN-q0-BMr"/>
                                 </constraints>
@@ -272,11 +304,11 @@
                             <constraint firstItem="2OF-FS-jZq" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="S9R-iu-iq0"/>
                             <constraint firstItem="hVN-1h-ZF5" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="Zb6-Xx-Lbc"/>
                             <constraint firstItem="a38-Tv-3V4" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="dS2-e8-R6L"/>
-                            <constraint firstItem="a38-Tv-3V4" firstAttribute="leading" secondItem="l5g-eb-wGM" secondAttribute="trailing" constant="30" id="dtA-J5-QDP"/>
+                            <constraint firstItem="a38-Tv-3V4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="l5g-eb-wGM" secondAttribute="trailing" constant="25" id="dtA-J5-QDP"/>
                             <constraint firstAttribute="centerY" secondItem="l5g-eb-wGM" secondAttribute="centerY" id="hiT-Of-41W"/>
                             <constraint firstAttribute="centerX" secondItem="l5g-eb-wGM" secondAttribute="centerX" id="j30-AM-mD4"/>
                             <constraint firstItem="hVN-1h-ZF5" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="nK6-RV-jYc"/>
-                            <constraint firstItem="l5g-eb-wGM" firstAttribute="leading" secondItem="hVN-1h-ZF5" secondAttribute="trailing" constant="40" id="rmQ-Lv-4RP"/>
+                            <constraint firstItem="l5g-eb-wGM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hVN-1h-ZF5" secondAttribute="trailing" constant="25" id="rmQ-Lv-4RP"/>
                             <constraint firstItem="2OF-FS-jZq" firstAttribute="top" secondItem="hVN-1h-ZF5" secondAttribute="bottom" constant="8" id="tdv-N3-oZk"/>
                         </constraints>
                         <connections>
