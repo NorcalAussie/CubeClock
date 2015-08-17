@@ -205,7 +205,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell = self.timesTableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
         
-        cell.textLabel?.font = UIFont(name: "DINAlternate-Bold",
+        cell.textLabel?.font = UIFont(name: "Avenir-LightOblique",
             size: 12.0)
         cell.textLabel?.text = String(format: "%d. %@", (self.timesArray.theArray.count - indexPath.row), timesArray.theArray[(timesArray.theArray.count - indexPath.row - 1)].timeString)
         cell.textLabel?.textAlignment = .Center
