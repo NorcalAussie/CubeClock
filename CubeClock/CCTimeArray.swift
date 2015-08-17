@@ -11,7 +11,7 @@ import Foundation
 class CCTimeArray {
     var theArray:[CCTime] = []
     
-    func calcOfAverage(totalTrials: Int) -> CCTime{
+    func calcOfAverage(totalTrials: Int) -> CCTime {
         var avg = 0.0
         var tempIndex = 1
         var tempArrayIndex = 0
@@ -44,7 +44,7 @@ class CCTimeArray {
         return avgTime
     }
     
-    func calcAverages() -> (average: CCTime, averageFive: CCTime, averageTen: CCTime, bestTime: CCTime){
+    func calcAverages() -> (average: CCTime, averageFive: CCTime, averageTen: CCTime, bestTime: CCTime) {
         var sum = 0.0
         var lastFiveSum = 0.0
         var lastTenSum = 0.0
@@ -54,15 +54,15 @@ class CCTimeArray {
         for times in theArray {
             sum += times.time
             
-            if (theArray.count >= 5) && (theArray.count - tempIndex < 5){
+            if (theArray.count >= 5) && (theArray.count - tempIndex < 5) {
                 lastFiveSum += times.time
             }
             
-            if (theArray.count >= 10) && (theArray.count - tempIndex < 10){
+            if (theArray.count >= 10) && (theArray.count - tempIndex < 10) {
                 lastTenSum += times.time
             }
             
-            if times.time < best{
+            if times.time < best {
                 best = times.time
             }
             
@@ -75,10 +75,10 @@ class CCTimeArray {
         let avgTime = CCTime(elapsedTime: avg)
         
         var avgFive: Double = lastFiveSum/5.0
-        let avgFiveTime = CCTime(elapsedTime: avg)
+        let avgFiveTime = CCTime(elapsedTime: avgFive)
         
         var avgTen: Double = lastTenSum/10.0
-        let avgTenTime = CCTime(elapsedTime: avg)
+        let avgTenTime = CCTime(elapsedTime: avgTen)
         
         return (avgTime, avgFiveTime, avgTenTime, bestTime)
     }

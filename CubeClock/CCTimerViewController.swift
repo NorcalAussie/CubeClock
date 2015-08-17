@@ -79,7 +79,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.timesTableView.reloadData()
     }
     
-    func updateTime(){
+    func updateTime() {
         if (timerRunning) {
             var currentTime = NSDate.timeIntervalSinceReferenceDate()
             var elapsedTime: NSTimeInterval = currentTime - startTime
@@ -118,7 +118,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     func saveData() {
         //Archive array
         if NSKeyedArchiver.archiveRootObject(timesArray.theArray, toFile: path) {
-            println("Success writing to file!")
+            
         } else {
             println("Unable to write to file!")
         }
@@ -169,7 +169,6 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
             
         } else {
-            NSLog("stopping")
             stopTimer()
             recordTime()
             updateStats()
@@ -180,7 +179,6 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         if(!needsReset) {
             if(!timerRunning) {
-                NSLog("touchesBegan")
                 timerLabel.textColor = UIColor.redColor()
             }
         }
@@ -208,8 +206,9 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         var cell:UITableViewCell = self.timesTableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
         
         cell.textLabel?.font = UIFont(name: "DINAlternate-Bold",
-            size: 15.0)
+            size: 12.0)
         cell.textLabel?.text = String(format: "%d. %@", (self.timesArray.theArray.count - indexPath.row), timesArray.theArray[(timesArray.theArray.count - indexPath.row - 1)].timeString)
+        cell.textLabel?.textAlignment = .Center
         
         return cell
     }
