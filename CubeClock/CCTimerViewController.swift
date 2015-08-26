@@ -160,6 +160,13 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    @IBAction func infoPressed(sender: AnyObject) {
+        let alert = UIAlertController(title: "Help", message: nil, preferredStyle: .Alert)
+        alert.message = "To use the timer, touch the screen with at least 2 fingers until you see the text turn green, release your fingers to start the timer. To stop the timer simply tap the screen again. Tap once more to reset when you finish and a new scramble will also be generated and displayed for you"
+        alert.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
+        presentViewController(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func tapDetected(sender: AnyObject) {
         if (!timerRunning) {
             if (needsReset) {
@@ -174,12 +181,36 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
             updateStats()
         }
     }
-    
+
     // MARK: - Touch recognizers
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        if(!needsReset) {
-            if(!timerRunning) {
-                timerLabel.textColor = UIColor.redColor()
+        if (!needsReset) {
+            if (!timerRunning) {
+                if (touches.count < 2) {
+                    timerLabel.textColor = UIColor.redColor()
+                }
+                if (touches.count >= 2) {
+                    timerLabel.textColor = UIColor.greenColor()
+                }
+                
+            }
+        }
+    }
+    
+   override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+        if (!needsReset) {
+            if (!timerRunning) {
+                if (touches.count >= 2) {
+                    timerLabel.textColor = UIColor.greenColor()
+                }
+            }
+        }
+    }
+    
+    override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
+        if (!needsReset) {
+            if (!timerRunning) {
+                timerLabel.textColor = UIColor.blackColor()
             }
         }
     }
@@ -187,12 +218,26 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
         if(!needsReset) {
             if(!timerRunning) {
-                let aSelector : Selector = "updateTime"
-                timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: aSelector, userInfo: nil, repeats: true)
-                startTime = NSDate.timeIntervalSinceReferenceDate()
-                timerLabel.textColor = UIColor.blackColor()
-                timerRunning = true
-                needsReset = true
+                let touchCount = touches.count
+                let touch = touches.first as! UITouch
+                let tapCount = touch.tapCount
+                
+                NSLog("touchesEnded")
+                NSLog("\(touchCount) touches")
+                NSLog("\(tapCount) taps")
+                
+                if (touchCount < 2) {
+                    timerLabel.textColor = UIColor.blackColor()
+                }
+                
+                if (touchCount >= 2) {
+                    let aSelector : Selector = "updateTime"
+                    timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: aSelector, userInfo: nil, repeats: true)
+                    startTime = NSDate.timeIntervalSinceReferenceDate()
+                    timerLabel.textColor = UIColor.blackColor()
+                    timerRunning = true
+                    needsReset = true
+                }
             }
         }
     }

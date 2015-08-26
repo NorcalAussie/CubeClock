@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -14,12 +15,12 @@
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a38-Tv-3V4">
-                                <rect key="frame" x="500" y="28" width="100" height="552"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a38-Tv-3V4">
+                                <rect key="frame" x="496" y="28" width="104" height="552"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPa-AA-lg0">
                                         <rect key="frame" x="8" y="8" width="88" height="24"/>
@@ -242,8 +243,8 @@
                                     <action selector="clearPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kcu-mO-Cz6"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcQ-em-cWd">
-                                <rect key="frame" x="290" y="361" width="21" height="13"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcQ-em-cWd">
+                                <rect key="frame" x="290" y="360" width="21" height="14"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -273,8 +274,17 @@
                                     <fontDescription key="fontDescription" name="Avenir-LightOblique" family="Avenir" pointSize="85"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIr-bK-N9J">
+                                <rect key="frame" x="277" y="545" width="22" height="22"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="infoPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="CLI-rw-sQG"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="2OF-FS-jZq" secondAttribute="bottom" constant="20" id="29S-VZ-VPn"/>
@@ -282,6 +292,8 @@
                             <constraint firstAttribute="trailing" secondItem="a38-Tv-3V4" secondAttribute="trailing" id="704-Ic-ZqJ"/>
                             <constraint firstItem="hVN-1h-ZF5" firstAttribute="width" secondItem="2OF-FS-jZq" secondAttribute="width" id="Aav-HC-y2y"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" relation="lessThanOrEqual" secondItem="hcQ-em-cWd" secondAttribute="bottom" constant="226" id="CuD-He-sBW"/>
+                            <constraint firstItem="eIr-bK-N9J" firstAttribute="centerY" secondItem="2OF-FS-jZq" secondAttribute="centerY" constant="-4" id="Ibp-gJ-DX6"/>
+                            <constraint firstAttribute="centerX" secondItem="eIr-bK-N9J" secondAttribute="centerX" constant="12" id="Lq7-ah-nRk"/>
                             <constraint firstItem="hcQ-em-cWd" firstAttribute="top" secondItem="l5g-eb-wGM" secondAttribute="bottom" constant="9" id="QVz-cS-BdQ"/>
                             <constraint firstItem="2OF-FS-jZq" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="S9R-iu-iq0"/>
                             <constraint firstAttribute="centerX" secondItem="hcQ-em-cWd" secondAttribute="centerX" id="Ym2-jX-UUp"/>
