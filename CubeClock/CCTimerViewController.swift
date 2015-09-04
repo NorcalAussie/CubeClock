@@ -18,6 +18,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tenOfTwelveLabel: UILabel!
     @IBOutlet weak var bestLabel: UILabel!
     @IBOutlet weak var scrambleLabel: UILabel!
+    @IBOutlet weak var hintLabel: UILabel!
     
     //Table View Outlet
     @IBOutlet weak var timesTableView: UITableView!
@@ -63,9 +64,10 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
             timesTableView.reloadData()
         }
         
-        timesArray.theArray = [CCTime(elapsedTime: 65.542),CCTime(elapsedTime: 61.934),CCTime(elapsedTime: 57.1236),CCTime(elapsedTime: 71.6213412),CCTime(elapsedTime: 62.2178362),CCTime(elapsedTime: 59.9127309)]
+        //timesArray.theArray = [CCTime(elapsedTime: 65.542),CCTime(elapsedTime: 61.934),CCTime(elapsedTime: 57.1236),CCTime(elapsedTime: 71.6213412),CCTime(elapsedTime: 62.2178362),CCTime(elapsedTime: 59.9127309)]
         updateStats()
-        timerLabel.text = CCTime(elapsedTime: 31.23423).timeString
+        //timerLabel.text = CCTime(elapsedTime: 31.23423).timeString
+        hintLabel.text = "Tap to begin 5 second countdown"
         
         getNewScramble()
     }
@@ -74,6 +76,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     func stopTimer() {
         timer!.invalidate()
         timer = nil
+        hintLabel.text = "Tap to reset timer"
         timerRunning = false
         primed = false
     }
@@ -147,6 +150,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         primed = true
         timesTableView.reloadData()
         nextIndex = 0
+        hintLabel.text = "Tap to begin 5 second countdown"
         getNewScramble()
     }
     
@@ -171,7 +175,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func infoPressed(sender: AnyObject) {
         let alert = UIAlertController(title: "Help", message: nil, preferredStyle: .Alert)
-        alert.message = "To use the timer, touch the screen with at least 1 finger until you see the text turn green, release your finger/s to start the timer. To stop the timer simply tap the screen again. Tap once more to reset when you finish and a new scramble will also be generated and displayed for you\n\n Version: 1.0"
+        alert.message = "To use the timer, tap the screen to begin a 5 second timer, the timer will start at the end of the countdown. To stop the timer simply tap the screen again. Tap once more to reset when you finish and a new scramble will also be generated and displayed for you\n\n Version: 1.0"
         alert.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
         presentViewController(alert, animated: true, completion: nil)
     }
@@ -183,10 +187,12 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
                     timerLabel.text = "00:00:00"
                     needsReset = false
                     primed = true
+                    hintLabel.text = "Tap to begin 5 second countdown"
                     getNewScramble()
                 }
             } else if (primed) {
                 NSLog("not running, primed")
+                hintLabel.text = ""
                 timerLabel.text = "5"
                 NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("countDown:"), userInfo: nil, repeats: true)
                 

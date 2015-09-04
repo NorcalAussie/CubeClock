@@ -283,10 +283,17 @@
                                     <action selector="infoPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="CLI-rw-sQG"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFe-x4-dS9">
+                                <rect key="frame" x="288" y="228" width="24" height="12"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="l5g-eb-wGM" firstAttribute="top" secondItem="uFe-x4-dS9" secondAttribute="bottom" constant="8" id="0bx-hA-qBW"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="2OF-FS-jZq" secondAttribute="bottom" constant="20" id="29S-VZ-VPn"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="a38-Tv-3V4" secondAttribute="bottom" constant="20" id="52t-Xg-T3c"/>
                             <constraint firstAttribute="trailing" secondItem="a38-Tv-3V4" secondAttribute="trailing" id="704-Ic-ZqJ"/>
@@ -303,6 +310,7 @@
                             <constraint firstItem="l5g-eb-wGM" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="fyr-Un-MX0"/>
                             <constraint firstItem="hVN-1h-ZF5" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="nK6-RV-jYc"/>
                             <constraint firstItem="2OF-FS-jZq" firstAttribute="top" secondItem="hVN-1h-ZF5" secondAttribute="bottom" constant="8" id="tdv-N3-oZk"/>
+                            <constraint firstAttribute="centerX" secondItem="uFe-x4-dS9" secondAttribute="centerX" id="vkW-yL-N6l"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Ox8-IP-F2e" appends="YES" id="2dD-tJ-Imb"/>
@@ -314,6 +322,7 @@
                         <outlet property="averageLabel" destination="Xul-7q-SuX" id="DNT-uW-pNo"/>
                         <outlet property="averageTenLabel" destination="Ius-Yb-IcO" id="YyY-Hf-Tzr"/>
                         <outlet property="bestLabel" destination="rjV-8X-QZr" id="XCb-PA-GDf"/>
+                        <outlet property="hintLabel" destination="uFe-x4-dS9" id="D4o-QD-U6A"/>
                         <outlet property="scrambleLabel" destination="hcQ-em-cWd" id="MtU-wb-PL0"/>
                         <outlet property="tenOfTwelveLabel" destination="DW0-Iw-e6j" id="rua-jf-Yy8"/>
                         <outlet property="threeOfFiveLabel" destination="IQX-hf-CMP" id="S1c-Qf-4J2"/>
