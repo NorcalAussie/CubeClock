@@ -29,6 +29,8 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     var startTime = NSTimeInterval()
     var timer: NSTimer?
     var nextIndex = 0
+    var primed = true
+    var countdown: Int! = 4
     
     //TimesArray and Time Objects created
     let timesArray = CCTimeArray()
@@ -61,6 +63,10 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
             timesTableView.reloadData()
         }
         
+        timesArray.theArray = [CCTime(elapsedTime: 65.542),CCTime(elapsedTime: 61.934),CCTime(elapsedTime: 57.1236),CCTime(elapsedTime: 71.6213412),CCTime(elapsedTime: 62.2178362),CCTime(elapsedTime: 59.9127309)]
+        updateStats()
+        timerLabel.text = CCTime(elapsedTime: 31.23423).timeString
+        
         getNewScramble()
     }
 
@@ -69,9 +75,11 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         timer!.invalidate()
         timer = nil
         timerRunning = false
+        primed = false
     }
     
     func recordTime() {
+        NSLog("\(time.time)")
         timesArray.theArray.insert(time, atIndex: nextIndex)
         nextIndex++
         saveData()
@@ -136,6 +144,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         tenOfTwelveLabel.text = "-"
         timerLabel.text = "00:00:00"
         needsReset = false
+        primed = true
         timesTableView.reloadData()
         nextIndex = 0
         getNewScramble()
@@ -162,84 +171,49 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func infoPressed(sender: AnyObject) {
         let alert = UIAlertController(title: "Help", message: nil, preferredStyle: .Alert)
-        alert.message = "To use the timer, touch the screen with at least 2 fingers until you see the text turn green, release your fingers to start the timer. To stop the timer simply tap the screen again. Tap once more to reset when you finish and a new scramble will also be generated and displayed for you"
+        alert.message = "To use the timer, touch the screen with at least 1 finger until you see the text turn green, release your finger/s to start the timer. To stop the timer simply tap the screen again. Tap once more to reset when you finish and a new scramble will also be generated and displayed for you\n\n Version: 1.0"
         alert.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
         presentViewController(alert, animated: true, completion: nil)
     }
     
     @IBAction func tapDetected(sender: AnyObject) {
         if (!timerRunning) {
-            if (needsReset) {
-                timerLabel.text = "00:00:00"
-                needsReset = false
-                getNewScramble()
+            if (!primed) {
+                if (needsReset) {
+                    timerLabel.text = "00:00:00"
+                    needsReset = false
+                    primed = true
+                    getNewScramble()
+                }
+            } else if (primed) {
+                NSLog("not running, primed")
+                timerLabel.text = "5"
+                NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("countDown:"), userInfo: nil, repeats: true)
+                
             }
-            
         } else {
             stopTimer()
             recordTime()
             updateStats()
         }
     }
-
-    // MARK: - Touch recognizers
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        if (!needsReset) {
-            if (!timerRunning) {
-                if (touches.count < 2) {
-                    timerLabel.textColor = UIColor.redColor()
-                }
-                if (touches.count >= 2) {
-                    timerLabel.textColor = UIColor.greenColor()
-                }
-                
-            }
-        }
-    }
     
-   override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        if (!needsReset) {
-            if (!timerRunning) {
-                if (touches.count >= 2) {
-                    timerLabel.textColor = UIColor.greenColor()
-                }
-            }
+    func countDown(time: NSTimer) {
+        if (countdown == 0) {
+            time.invalidate()
+            countdown = 4
+            let aSelector : Selector = "updateTime"
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: aSelector, userInfo: nil, repeats: true)
+            startTime = NSDate.timeIntervalSinceReferenceDate()
+            timerLabel.textColor = UIColor.blackColor()
+            timerRunning = true
+            needsReset = true
+            primed = false
+        } else {
+            timerLabel.text = String(format: "%i", arguments: [countdown])
+            countdown = countdown - 1
         }
-    }
-    
-    override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
-        if (!needsReset) {
-            if (!timerRunning) {
-                timerLabel.textColor = UIColor.blackColor()
-            }
-        }
-    }
-    
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-        if(!needsReset) {
-            if(!timerRunning) {
-                let touchCount = touches.count
-                let touch = touches.first as! UITouch
-                let tapCount = touch.tapCount
-                
-                NSLog("touchesEnded")
-                NSLog("\(touchCount) touches")
-                NSLog("\(tapCount) taps")
-                
-                if (touchCount < 2) {
-                    timerLabel.textColor = UIColor.blackColor()
-                }
-                
-                if (touchCount >= 2) {
-                    let aSelector : Selector = "updateTime"
-                    timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: aSelector, userInfo: nil, repeats: true)
-                    startTime = NSDate.timeIntervalSinceReferenceDate()
-                    timerLabel.textColor = UIColor.blackColor()
-                    timerRunning = true
-                    needsReset = true
-                }
-            }
-        }
+        
     }
     
     // MARK: - TableView  Functions

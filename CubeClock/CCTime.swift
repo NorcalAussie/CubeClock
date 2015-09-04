@@ -9,10 +9,10 @@
 import Foundation
 
 class CCTime: NSObject, NSCoding {
-    var time: Double = 0.0
+    var time: NSTimeInterval = 0.0
     var timeString: String = ""
     
-    init (elapsedTime: Double) {
+    init (elapsedTime: NSTimeInterval) {
         self.time = elapsedTime
         self.timeString = convertTimeToFormattedString(elapsedTime)
     }
@@ -34,15 +34,14 @@ class CCTime: NSObject, NSCoding {
     }
 }
 
-func convertTimeToFormattedString(elapsedTime: Double) -> String {
+func convertTimeToFormattedString(elapsedTime: NSTimeInterval) -> String {
     var theString = ""
     
     var elapsedTimeTemp = elapsedTime
-    
-    let minutes = UInt8(elapsedTime / 60.0)
+    let minutes = UInt8(elapsedTimeTemp / 60.0)
     elapsedTimeTemp -= (NSTimeInterval(minutes) * 60)
     
-    let seconds = UInt8(elapsedTime)
+    let seconds = UInt8(elapsedTimeTemp)
     elapsedTimeTemp -= NSTimeInterval(seconds)
     
     let fraction = UInt8(elapsedTimeTemp * 100)
