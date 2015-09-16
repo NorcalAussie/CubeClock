@@ -27,11 +27,11 @@ func generateScramble() -> NSArray {
     var moves: [String] = []
     
     for var index = 0; index < 25; ++index {
-        do {
+        repeat {
             randomIndex = Int(arc4random_uniform(15))
             nextMove = possibleTurns[randomIndex]
         }
-            while (Array(nextMove)[0] == Array(previousMove)[0])
+            while (Array(arrayLiteral: nextMove)[0] == Array(arrayLiteral: previousMove)[0])
         
         previousMove = nextMove
         moves.insert(nextMove, atIndex: index)

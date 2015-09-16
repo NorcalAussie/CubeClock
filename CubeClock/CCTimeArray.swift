@@ -27,7 +27,7 @@ class CCTimeArray {
         }
         
         //Sort array and calculate average using all but first and last element
-        tempArray.sort({ $0.time > $1.time })
+        tempArray.sortInPlace({ $0.time > $1.time })
         var sum = 0.0
         tempIndex = 1
         for time in tempArray {
@@ -71,13 +71,13 @@ class CCTimeArray {
         
         let bestTime = CCTime(elapsedTime: best)
         
-        var avg: Double = sum/Double((theArray.count))
+        let avg: Double = sum/Double((theArray.count))
         let avgTime = CCTime(elapsedTime: avg)
         
-        var avgFive: Double = lastFiveSum/5.0
+        let avgFive: Double = lastFiveSum/5.0
         let avgFiveTime = CCTime(elapsedTime: avgFive)
         
-        var avgTen: Double = lastTenSum/10.0
+        let avgTen: Double = lastTenSum/10.0
         let avgTenTime = CCTime(elapsedTime: avgTen)
         
         return (avgTime, avgFiveTime, avgTenTime, bestTime)

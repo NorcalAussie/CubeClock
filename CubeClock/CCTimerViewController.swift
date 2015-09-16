@@ -38,9 +38,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     var allTimes:NSMutableArray = []
     var time:CCTime!
     
-    var documentDirectories:NSArray!
-    var documentDirectory:String!
-    var path:String!
+    var path = String()
     
     // MARK: - Device Functions
     override func viewDidLoad() {
@@ -48,14 +46,10 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.timesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        // Create a filepath for archiving.
-        documentDirectories = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+        let fileURL = documentsURL.URLByAppendingPathComponent("CubeClock.archive")
         
-        // Get document directory from that list
-        documentDirectory = documentDirectories.objectAtIndex(0) as! String
-        
-        // append with the .archive file name
-        path = documentDirectory.stringByAppendingPathComponent("CubeClock.archive")
+        path = fileURL.path!
         
         if (NSKeyedUnarchiver.unarchiveObjectWithFile(path) != nil) {
             timesArray.theArray = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as! NSArray as! [CCTime]
@@ -92,8 +86,8 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func updateTime() {
         if (timerRunning) {
-            var currentTime = NSDate.timeIntervalSinceReferenceDate()
-            var elapsedTime: NSTimeInterval = currentTime - startTime
+            let currentTime = NSDate.timeIntervalSinceReferenceDate()
+            let elapsedTime: NSTimeInterval = currentTime - startTime
             
             self.time = CCTime(elapsedTime: elapsedTime)
             timerLabel.text = time.timeString
@@ -131,7 +125,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         if NSKeyedArchiver.archiveRootObject(timesArray.theArray, toFile: path) {
             
         } else {
-            println("Unable to write to file!")
+            print("Unable to write to file!")
         }
     }
     
@@ -164,20 +158,29 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: - IBActions
     @IBAction func clearPressed(sender: AnyObject) {
         if (!timesArray.theArray.isEmpty) {
-            let alert = UIAlertController(title: nil, message: "Are you sure?", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "Clear", style: .Default, handler: { (alertAction) -> Void in
-                self.clearData()
-            }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-            presentViewController(alert, animated: true, completion: nil)
+            if #available(iOS 8.0, *) {
+                let alert = UIAlertController(title: nil, message: "Are you sure?", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "Clear", style: .Default, handler: { (alertAction) -> Void in
+                    self.clearData()
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+                presentViewController(alert, animated: true, completion: nil)
+            } else {
+                // Fallback on earlier versions
+            }
         }
     }
     
     @IBAction func infoPressed(sender: AnyObject) {
-        let alert = UIAlertController(title: "Help", message: nil, preferredStyle: .Alert)
-        alert.message = "To use the timer, tap the screen to begin a 5 second timer, the timer will start at the end of the countdown. To stop the timer simply tap the screen again. Tap once more to reset when you finish and a new scramble will also be generated and displayed for you\n\n Version: 1.1"
-        alert.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
-        presentViewController(alert, animated: true, completion: nil)
+        if #available(iOS 8.0, *) {
+            let alert = UIAlertController(title: "Help", message: nil, preferredStyle: .Alert)
+            alert.message = "To use the timer, tap the screen to begin a 5 second timer, the timer will start at the end of the countdown. To stop the timer simply tap the screen again. Tap once more to reset when you finish and a new scramble will also be generated and displayed for you\n\n Version: 1.1"
+            alert.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
+            presentViewController(alert, animated: true, completion: nil)
+        } else {
+            // Fallback on earlier versions
+        }
+        
     }
     
     @IBAction func tapDetected(sender: AnyObject) {
@@ -228,7 +231,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.timesTableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
+        let cell:UITableViewCell = self.timesTableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell!
         
         cell.textLabel?.font = UIFont(name: "Avenir-LightOblique",
             size: 12.0)
