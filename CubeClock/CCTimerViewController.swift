@@ -20,6 +20,8 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var scrambleLabel: UILabel!
     @IBOutlet weak var hintLabel: UILabel!
     
+    @IBOutlet weak var clearButton: UIButton!
+    
     //Table View Outlet
     @IBOutlet weak var timesTableView: UITableView!
     
@@ -29,6 +31,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     var totalTime = 0.0
     var startTime = NSTimeInterval()
     var timer: NSTimer?
+    var countdownTimer: NSTimer?
     var nextIndex = 0
     var primed = true
     var countdown: Int! = 4
@@ -73,6 +76,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         hintLabel.text = "Tap to reset timer"
         timerRunning = false
         primed = false
+        clearButton.enabled = true
     }
     
     func recordTime() {
@@ -192,12 +196,19 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
                     primed = true
                     hintLabel.text = "Tap to begin 5 second countdown"
                     getNewScramble()
+                } else if (!needsReset) {
+                    countdownTimer?.invalidate()
+                    countdown = 4
+                    timerLabel.text = "00:00:00"
+                    primed = true
+                    hintLabel.text = "Tap to begin 5 second countdown"
                 }
             } else if (primed) {
                 NSLog("not running, primed")
                 hintLabel.text = ""
                 timerLabel.text = "5"
-                NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("countDown:"), userInfo: nil, repeats: true)
+                primed = false
+                countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("countDown:"), userInfo: nil, repeats: true)
                 
             }
         } else {
@@ -215,6 +226,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
             timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: aSelector, userInfo: nil, repeats: true)
             startTime = NSDate.timeIntervalSinceReferenceDate()
             timerLabel.textColor = UIColor.blackColor()
+            clearButton.enabled = false
             timerRunning = true
             needsReset = true
             primed = false
