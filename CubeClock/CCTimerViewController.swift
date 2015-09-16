@@ -175,7 +175,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func infoPressed(sender: AnyObject) {
         let alert = UIAlertController(title: "Help", message: nil, preferredStyle: .Alert)
-        alert.message = "To use the timer, tap the screen to begin a 5 second timer, the timer will start at the end of the countdown. To stop the timer simply tap the screen again. Tap once more to reset when you finish and a new scramble will also be generated and displayed for you\n\n Version: 1.0"
+        alert.message = "To use the timer, tap the screen to begin a 5 second timer, the timer will start at the end of the countdown. To stop the timer simply tap the screen again. Tap once more to reset when you finish and a new scramble will also be generated and displayed for you\n\n Version: 1.1"
         alert.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
         presentViewController(alert, animated: true, completion: nil)
     }
