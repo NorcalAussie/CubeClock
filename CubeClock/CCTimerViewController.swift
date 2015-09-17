@@ -22,7 +22,6 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var clearButton: UIButton!
     
-    //Table View Outlet
     @IBOutlet weak var timesTableView: UITableView!
     
     // MARK: - Local Variables
@@ -35,13 +34,12 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     var nextIndex = 0
     var primed = true
     var countdown: Int! = 4
+    var path = String()
     
     //TimesArray and Time Objects created
     let timesArray = CCTimeArray()
     var allTimes:NSMutableArray = []
     var time:CCTime!
-    
-    var path = String()
     
     // MARK: - Device Functions
     override func viewDidLoad() {
@@ -49,11 +47,12 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.timesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
+        //Get the path for saving
         let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
         let fileURL = documentsURL.URLByAppendingPathComponent("CubeClock.archive")
-        
         path = fileURL.path!
         
+        //If data is found, load it
         if (NSKeyedUnarchiver.unarchiveObjectWithFile(path) != nil) {
             timesArray.theArray = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as! NSArray as! [CCTime]
             updateStats()
@@ -61,15 +60,36 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
             timesTableView.reloadData()
         }
         
-        //timesArray.theArray = [CCTime(elapsedTime: 65.542),CCTime(elapsedTime: 61.934),CCTime(elapsedTime: 57.1236),CCTime(elapsedTime: 71.6213412),CCTime(elapsedTime: 62.2178362),CCTime(elapsedTime: 59.9127309)]
         updateStats()
-        //timerLabel.text = CCTime(elapsedTime: 31.23423).timeString
         hintLabel.text = "Tap to begin 5 second countdown"
-        
         getNewScramble()
+        
+        //Uncomment for screenshots with placeholder data
+        /*
+        timesArray.theArray = [CCTime(elapsedTime: 65.542),CCTime(elapsedTime: 61.934),CCTime(elapsedTime: 57.1236),CCTime(elapsedTime: 71.6213412),CCTime(elapsedTime: 62.2178362),CCTime(elapsedTime: 59.9127309)]
+        timerLabel.text = CCTime(elapsedTime: 31.23423).timeString
+        */
     }
-
+    
     // MARK: - Local Functions
+    func updateTime() {
+        if (timerRunning) {
+            let currentTime = NSDate.timeIntervalSinceReferenceDate()
+            let elapsedTime: NSTimeInterval = currentTime - startTime
+            
+            self.time = CCTime(elapsedTime: elapsedTime)
+            timerLabel.text = time.timeString
+        }
+    }
+    
+    func recordTime() {
+        timesArray.theArray.insert(time, atIndex: nextIndex)
+        nextIndex++
+        saveData()
+        
+        self.timesTableView.reloadData()
+    }
+    
     func stopTimer() {
         timer!.invalidate()
         timer = nil
@@ -79,22 +99,12 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         clearButton.enabled = true
     }
     
-    func recordTime() {
-        NSLog("\(time.time)")
-        timesArray.theArray.insert(time, atIndex: nextIndex)
-        nextIndex++
-        saveData()
-        
-        self.timesTableView.reloadData()
-    }
-    
-    func updateTime() {
-        if (timerRunning) {
-            let currentTime = NSDate.timeIntervalSinceReferenceDate()
-            let elapsedTime: NSTimeInterval = currentTime - startTime
+    func saveData() {
+        //Archive array
+        if NSKeyedArchiver.archiveRootObject(timesArray.theArray, toFile: path) {
             
-            self.time = CCTime(elapsedTime: elapsedTime)
-            timerLabel.text = time.timeString
+        } else {
+            print("Unable to write to file!")
         }
     }
     
@@ -120,16 +130,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
                 tenOfTwelveLabel.text = "-"
             }
         } else {
-            clearPressed(self)
-        }
-    }
-    
-    func saveData() {
-        //Archive array
-        if NSKeyedArchiver.archiveRootObject(timesArray.theArray, toFile: path) {
-            
-        } else {
-            print("Unable to write to file!")
+            clearData()
         }
     }
     
@@ -178,7 +179,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func infoPressed(sender: AnyObject) {
         if #available(iOS 8.0, *) {
             let alert = UIAlertController(title: "Help", message: nil, preferredStyle: .Alert)
-            alert.message = "To use the timer, tap the screen to begin a 5 second timer, the timer will start at the end of the countdown. To stop the timer simply tap the screen again. Tap once more to reset when you finish and a new scramble will also be generated and displayed for you\n\n Version: 1.1"
+            alert.message = "To use the timer, tap the screen to begin a 5 second timer, the timer will start at the end of the countdown. To stop the timer simply tap the screen again. Tap once more to reset when you finish and a new scramble will also be generated and displayed for you\n\n Version: 1.2"
             alert.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
             presentViewController(alert, animated: true, completion: nil)
         } else {
@@ -199,6 +200,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
                 } else if (!needsReset) {
                     countdownTimer?.invalidate()
                     countdown = 4
+                    clearButton.enabled = true
                     timerLabel.text = "00:00:00"
                     primed = true
                     hintLabel.text = "Tap to begin 5 second countdown"
@@ -208,6 +210,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
                 hintLabel.text = ""
                 timerLabel.text = "5"
                 primed = false
+                clearButton.enabled = false
                 countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("countDown:"), userInfo: nil, repeats: true)
                 
             }
@@ -226,7 +229,6 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
             timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: aSelector, userInfo: nil, repeats: true)
             startTime = NSDate.timeIntervalSinceReferenceDate()
             timerLabel.textColor = UIColor.blackColor()
-            clearButton.enabled = false
             timerRunning = true
             needsReset = true
             primed = false
@@ -237,7 +239,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
-    // MARK: - TableView  Functions
+// MARK: - TableView  Functions
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.timesArray.theArray.count
     }
@@ -262,7 +264,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         nextIndex--
         updateStats()
+        saveData()
         tableView.reloadData()
     }
-    
 }

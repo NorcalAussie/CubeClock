@@ -16,7 +16,6 @@ class CCScramble: NSObject {
         self.scramble = generateScramble()
         self.scrambleString = getScrambleString(self.scramble)
     }
-
 }
 
 func generateScramble() -> NSArray {
@@ -30,13 +29,11 @@ func generateScramble() -> NSArray {
         repeat {
             randomIndex = Int(arc4random_uniform(15))
             nextMove = possibleTurns[randomIndex]
-        }
-            while (Array(arrayLiteral: nextMove)[0] == Array(arrayLiteral: previousMove)[0])
+        } while (Array(arrayLiteral: nextMove)[0] == Array(arrayLiteral: previousMove)[0])
         
         previousMove = nextMove
         moves.insert(nextMove, atIndex: index)
     }
-    
     return moves
 }
 
@@ -46,6 +43,5 @@ func getScrambleString(scramble: NSArray) -> String {
     for move in scramble {
         theString += "\(move) "
     }
-    
     return theString
 }
