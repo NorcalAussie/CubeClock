@@ -8,7 +8,22 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="CubeClockWatch" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="CubeClockWatch" customModuleProvider="target">
+                    <items>
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="Start" id="RaV-bM-I0P">
+                            <connections>
+                                <action selector="buttonPressed" destination="AgC-eL-Hgc" id="CsP-QQ-fbK"/>
+                            </connections>
+                        </button>
+                        <timer alignment="center" verticalAlignment="center" textAlignment="center" previewedSeconds="65" id="vuG-Er-qMi">
+                            <fontDescription key="font" type="system" weight="thin" pointSize="40"/>
+                            <calendarUnit key="units" second="YES"/>
+                        </timer>
+                    </items>
+                    <connections>
+                        <outlet property="timer" destination="vuG-Er-qMi" id="6o5-Jb-8IH"/>
+                    </connections>
+                </controller>
             </objects>
             <point key="canvasLocation" x="235" y="347"/>
         </scene>

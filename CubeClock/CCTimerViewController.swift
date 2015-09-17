@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import WatchConnectivity
 
-class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, WCSessionDelegate {
     // MARK: - Outlets
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var averageLabel: UILabel!
@@ -60,15 +61,18 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
             timesTableView.reloadData()
         }
         
-        updateStats()
-        hintLabel.text = "Tap to begin 5 second countdown"
-        getNewScramble()
+        if #available(iOS 9.0, *) {
+            if (WCSession.isSupported()) {
+                let session = WCSession.defaultSession()
+                session.delegate = self
+                session.activateSession()
+            }
+        }
         
-        //Uncomment for screenshots with placeholder data
-        /*
-        timesArray.theArray = [CCTime(elapsedTime: 65.542),CCTime(elapsedTime: 61.934),CCTime(elapsedTime: 57.1236),CCTime(elapsedTime: 71.6213412),CCTime(elapsedTime: 62.2178362),CCTime(elapsedTime: 59.9127309)]
-        timerLabel.text = CCTime(elapsedTime: 31.23423).timeString
-        */
+        hintLabel.text = "Tap to begin 5 second countdown"
+        updateStats()
+        getNewScramble()
+
     }
     
     // MARK: - Local Functions
@@ -159,6 +163,14 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         scrambleLabel.text = scramble.scrambleString
     }
     
+    func watchButtonPressed() {
+        dispatch_async(dispatch_get_main_queue(), {
+            // UI Updating code here.
+            self.tapDetected(self)
+            });
+        
+    }
+    
     
     // MARK: - IBActions
     @IBAction func clearPressed(sender: AnyObject) {
@@ -206,18 +218,21 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }
             } else if (primed) {
                 NSLog("not running, primed")
-                hintLabel.text = ""
-                timerLabel.text = "5"
-                primed = false
-                clearButton.enabled = false
-                countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("countDown:"), userInfo: nil, repeats: true)
-                
+                beginCountdown()
             }
         } else {
             stopTimer()
             recordTime()
             updateStats()
         }
+    }
+    
+    func beginCountdown() {
+        hintLabel.text = ""
+        timerLabel.text = "5"
+        primed = false
+        clearButton.enabled = false
+        countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("countDown:"), userInfo: nil, repeats: true)
     }
     
     func countDown(time: NSTimer) {
@@ -264,5 +279,11 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         updateStats()
         saveData()
         tableView.reloadData()
+    }
+    
+    @available(iOS 9.0, *)
+    func session(session: WCSession, didReceiveMessage message: [String : AnyObject]) {
+        NSLog("Message from watch recieved : %@,", message)
+        watchButtonPressed()
     }
 }

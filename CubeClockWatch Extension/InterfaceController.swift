@@ -8,14 +8,27 @@
 
 import WatchKit
 import Foundation
+import WatchConnectivity
 
-
-class InterfaceController: WKInterfaceController {
+class InterfaceController: WKInterfaceController, WCSessionDelegate {
+    
+    @IBOutlet var timer: WKInterfaceTimer!
+    let states = ["ready": 1, "countdown": 2, "running": 3, "stopped": 4]
+    var currentState: Int!
 
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
-        // Configure interface objects here.
+        // Configure interface objects here
+        
+        if (WCSession.isSupported()) {
+            let session = WCSession.defaultSession()
+            session.delegate = self
+            session.activateSession()
+        }
+        
+        currentState = states["ready"]
+
     }
 
     override func willActivate() {
@@ -28,4 +41,31 @@ class InterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
 
+    @IBAction func buttonPressed() {
+        
+        switch currentState {
+        case 1:
+            break
+        case 2:
+            break
+        case 3:
+            break
+        case 4:
+            break
+        default:
+            break
+        }
+        
+        let message = ["key" : "word"]
+        WCSession.defaultSession().sendMessage(message, replyHandler: { (_: [String : AnyObject]) -> Void in
+           
+            }) { (NSError) -> Void in
+                
+            }
+        let futureDate = NSDate(timeInterval: 5, sinceDate: NSDate.init())
+        timer.setDate(futureDate)
+        timer.start()
+    }
 }
+    
+
