@@ -11,6 +11,16 @@
 		C94447DA1B7D94FA00A210A9 /* CCScramble.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94447D91B7D94FA00A210A9 /* CCScramble.swift */; };
 		C96E9FC41B7C2B17005857F6 /* CCTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E9FC31B7C2B17005857F6 /* CCTime.swift */; };
 		C96E9FC61B7C2C5C005857F6 /* CCTimeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E9FC51B7C2C5C005857F6 /* CCTimeArray.swift */; };
+		C9EFD6F21BAA764E00E13E9C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9EFD6F01BAA764E00E13E9C /* Interface.storyboard */; };
+		C9EFD6F41BAA764E00E13E9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9EFD6F31BAA764E00E13E9C /* Assets.xcassets */; };
+		C9EFD6FB1BAA764E00E13E9C /* CubeClockWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C9EFD6FA1BAA764E00E13E9C /* CubeClockWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C9EFD7021BAA764E00E13E9C /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFD7011BAA764E00E13E9C /* InterfaceController.swift */; };
+		C9EFD7041BAA764E00E13E9C /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFD7031BAA764E00E13E9C /* ExtensionDelegate.swift */; };
+		C9EFD7061BAA764E00E13E9C /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFD7051BAA764E00E13E9C /* NotificationController.swift */; };
+		C9EFD7081BAA764E00E13E9C /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFD7071BAA764E00E13E9C /* GlanceController.swift */; };
+		C9EFD70A1BAA764E00E13E9C /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFD7091BAA764E00E13E9C /* ComplicationController.swift */; };
+		C9EFD70C1BAA764E00E13E9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9EFD70B1BAA764E00E13E9C /* Assets.xcassets */; };
+		C9EFD7101BAA764E00E13E9C /* CubeClockWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C9EFD6EE1BAA764E00E13E9C /* CubeClockWatch.app */; };
 		C9F093051B75AD2C00101C83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F093041B75AD2C00101C83 /* AppDelegate.swift */; };
 		C9F0930A1B75AD2C00101C83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9F093081B75AD2C00101C83 /* Main.storyboard */; };
 		C9F0930C1B75AD2C00101C83 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9F0930B1B75AD2C00101C83 /* Images.xcassets */; };
@@ -20,6 +30,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C9EFD6FC1BAA764E00E13E9C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9F092F71B75AD2B00101C83 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9EFD6F91BAA764E00E13E9C;
+			remoteInfo = "CubeClockWatch Extension";
+		};
+		C9EFD70E1BAA764E00E13E9C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9F092F71B75AD2B00101C83 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9EFD6ED1BAA764E00E13E9C;
+			remoteInfo = CubeClockWatch;
+		};
 		C9F093151B75AD2C00101C83 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C9F092F71B75AD2B00101C83 /* Project object */;
@@ -29,12 +53,49 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C9EFD7161BAA764E00E13E9C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C9EFD6FB1BAA764E00E13E9C /* CubeClockWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9EFD7181BAA764E00E13E9C /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				C9EFD7101BAA764E00E13E9C /* CubeClockWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		C943FEB31B781A9F00497611 /* CCCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CCCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		C94447D91B7D94FA00A210A9 /* CCScramble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCScramble.swift; sourceTree = "<group>"; };
 		C96E9FC31B7C2B17005857F6 /* CCTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCTime.swift; sourceTree = "<group>"; };
 		C96E9FC51B7C2C5C005857F6 /* CCTimeArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCTimeArray.swift; sourceTree = "<group>"; };
-		C97478991B798EA70065A2E1 /* CubeClock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CubeClock-Bridging-Header.h"; sourceTree = "<group>"; };
+		C9EFD6EE1BAA764E00E13E9C /* CubeClockWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CubeClockWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9EFD6F11BAA764E00E13E9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		C9EFD6F31BAA764E00E13E9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C9EFD6F51BAA764E00E13E9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9EFD6FA1BAA764E00E13E9C /* CubeClockWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "CubeClockWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9EFD7001BAA764E00E13E9C /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		C9EFD7011BAA764E00E13E9C /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		C9EFD7031BAA764E00E13E9C /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		C9EFD7051BAA764E00E13E9C /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		C9EFD7071BAA764E00E13E9C /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		C9EFD7091BAA764E00E13E9C /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		C9EFD70B1BAA764E00E13E9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C9EFD70D1BAA764E00E13E9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9F092FF1B75AD2C00101C83 /* CubeClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CubeClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F093031B75AD2C00101C83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9F093041B75AD2C00101C83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +109,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C9EFD6F71BAA764E00E13E9C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9F092FC1B75AD2C00101C83 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -73,10 +141,63 @@
 			path = CubeClock;
 			sourceTree = "<group>";
 		};
+		C9EFD6EA1BAA5E3000E13E9C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C96E9FC31B7C2B17005857F6 /* CCTime.swift */,
+				C96E9FC51B7C2C5C005857F6 /* CCTimeArray.swift */,
+				C94447D91B7D94FA00A210A9 /* CCScramble.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		C9EFD6EB1BAA5E4A00E13E9C /* TimerView */ = {
+			isa = PBXGroup;
+			children = (
+				C9F093241B75B28700101C83 /* CCTimerViewController.swift */,
+			);
+			name = TimerView;
+			sourceTree = "<group>";
+		};
+		C9EFD6EF1BAA764E00E13E9C /* CubeClockWatch */ = {
+			isa = PBXGroup;
+			children = (
+				C9EFD6F01BAA764E00E13E9C /* Interface.storyboard */,
+				C9EFD6F31BAA764E00E13E9C /* Assets.xcassets */,
+				C9EFD6F51BAA764E00E13E9C /* Info.plist */,
+			);
+			path = CubeClockWatch;
+			sourceTree = SOURCE_ROOT;
+		};
+		C9EFD6FE1BAA764E00E13E9C /* CubeClockWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C9EFD7011BAA764E00E13E9C /* InterfaceController.swift */,
+				C9EFD7031BAA764E00E13E9C /* ExtensionDelegate.swift */,
+				C9EFD7051BAA764E00E13E9C /* NotificationController.swift */,
+				C9EFD7071BAA764E00E13E9C /* GlanceController.swift */,
+				C9EFD7091BAA764E00E13E9C /* ComplicationController.swift */,
+				C9EFD70B1BAA764E00E13E9C /* Assets.xcassets */,
+				C9EFD70D1BAA764E00E13E9C /* Info.plist */,
+				C9EFD6FF1BAA764E00E13E9C /* Supporting Files */,
+			);
+			path = "CubeClockWatch Extension";
+			sourceTree = SOURCE_ROOT;
+		};
+		C9EFD6FF1BAA764E00E13E9C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C9EFD7001BAA764E00E13E9C /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		C9F092F61B75AD2B00101C83 = {
 			isa = PBXGroup;
 			children = (
 				C9F093011B75AD2C00101C83 /* CubeClock */,
+				C9EFD6EF1BAA764E00E13E9C /* CubeClockWatch */,
+				C9EFD6FE1BAA764E00E13E9C /* CubeClockWatch Extension */,
 				C9F093171B75AD2C00101C83 /* CubeClockTests */,
 				C9F093001B75AD2C00101C83 /* Products */,
 				C9535B111BA9FC3600594339 /* Frameworks */,
@@ -88,6 +209,8 @@
 			children = (
 				C9F092FF1B75AD2C00101C83 /* CubeClock.app */,
 				C9F093141B75AD2C00101C83 /* CubeClockTests.xctest */,
+				C9EFD6EE1BAA764E00E13E9C /* CubeClockWatch.app */,
+				C9EFD6FA1BAA764E00E13E9C /* CubeClockWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,14 +218,8 @@
 		C9F093011B75AD2C00101C83 /* CubeClock */ = {
 			isa = PBXGroup;
 			children = (
-				C9F093241B75B28700101C83 /* CCTimerViewController.swift */,
-				C96E9FC31B7C2B17005857F6 /* CCTime.swift */,
-				C96E9FC51B7C2C5C005857F6 /* CCTimeArray.swift */,
-				C94447D91B7D94FA00A210A9 /* CCScramble.swift */,
-				C9F093041B75AD2C00101C83 /* AppDelegate.swift */,
-				C9F093081B75AD2C00101C83 /* Main.storyboard */,
-				C9F0930B1B75AD2C00101C83 /* Images.xcassets */,
-				C9F0930D1B75AD2C00101C83 /* LaunchScreen.xib */,
+				C9EFD6EB1BAA5E4A00E13E9C /* TimerView */,
+				C9EFD6EA1BAA5E3000E13E9C /* Models */,
 				C9F093021B75AD2C00101C83 /* Supporting Files */,
 				C943FEB21B781A9F00497611 /* CCCoreDataModel.xcdatamodeld */,
 			);
@@ -112,7 +229,10 @@
 		C9F093021B75AD2C00101C83 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C97478991B798EA70065A2E1 /* CubeClock-Bridging-Header.h */,
+				C9F093041B75AD2C00101C83 /* AppDelegate.swift */,
+				C9F093081B75AD2C00101C83 /* Main.storyboard */,
+				C9F0930B1B75AD2C00101C83 /* Images.xcassets */,
+				C9F0930D1B75AD2C00101C83 /* LaunchScreen.xib */,
 				C9F093031B75AD2C00101C83 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -138,6 +258,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C9EFD6ED1BAA764E00E13E9C /* CubeClockWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9EFD7171BAA764E00E13E9C /* Build configuration list for PBXNativeTarget "CubeClockWatch" */;
+			buildPhases = (
+				C9EFD6EC1BAA764E00E13E9C /* Resources */,
+				C9EFD7161BAA764E00E13E9C /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C9EFD6FD1BAA764E00E13E9C /* PBXTargetDependency */,
+			);
+			name = CubeClockWatch;
+			productName = CubeClockWatch;
+			productReference = C9EFD6EE1BAA764E00E13E9C /* CubeClockWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		C9EFD6F91BAA764E00E13E9C /* CubeClockWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9EFD7151BAA764E00E13E9C /* Build configuration list for PBXNativeTarget "CubeClockWatch Extension" */;
+			buildPhases = (
+				C9EFD6F61BAA764E00E13E9C /* Sources */,
+				C9EFD6F71BAA764E00E13E9C /* Frameworks */,
+				C9EFD6F81BAA764E00E13E9C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CubeClockWatch Extension";
+			productName = "CubeClockWatch Extension";
+			productReference = C9EFD6FA1BAA764E00E13E9C /* CubeClockWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		C9F092FE1B75AD2C00101C83 /* CubeClock */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9F0931E1B75AD2C00101C83 /* Build configuration list for PBXNativeTarget "CubeClock" */;
@@ -145,10 +299,12 @@
 				C9F092FB1B75AD2C00101C83 /* Sources */,
 				C9F092FC1B75AD2C00101C83 /* Frameworks */,
 				C9F092FD1B75AD2C00101C83 /* Resources */,
+				C9EFD7181BAA764E00E13E9C /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C9EFD70F1BAA764E00E13E9C /* PBXTargetDependency */,
 			);
 			name = CubeClock;
 			productName = CubeClock;
@@ -183,6 +339,13 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = MPApps;
 				TargetAttributes = {
+					C9EFD6ED1BAA764E00E13E9C = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = UB69243N5V;
+					};
+					C9EFD6F91BAA764E00E13E9C = {
+						CreatedOnToolsVersion = 7.0;
+					};
 					C9F092FE1B75AD2C00101C83 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = UB69243N5V;
@@ -208,11 +371,30 @@
 			targets = (
 				C9F092FE1B75AD2C00101C83 /* CubeClock */,
 				C9F093131B75AD2C00101C83 /* CubeClockTests */,
+				C9EFD6ED1BAA764E00E13E9C /* CubeClockWatch */,
+				C9EFD6F91BAA764E00E13E9C /* CubeClockWatch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C9EFD6EC1BAA764E00E13E9C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9EFD6F41BAA764E00E13E9C /* Assets.xcassets in Resources */,
+				C9EFD6F21BAA764E00E13E9C /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9EFD6F81BAA764E00E13E9C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9EFD70C1BAA764E00E13E9C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9F092FD1B75AD2C00101C83 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -233,6 +415,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C9EFD6F61BAA764E00E13E9C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9EFD7061BAA764E00E13E9C /* NotificationController.swift in Sources */,
+				C9EFD7041BAA764E00E13E9C /* ExtensionDelegate.swift in Sources */,
+				C9EFD70A1BAA764E00E13E9C /* ComplicationController.swift in Sources */,
+				C9EFD7021BAA764E00E13E9C /* InterfaceController.swift in Sources */,
+				C9EFD7081BAA764E00E13E9C /* GlanceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9F092FB1B75AD2C00101C83 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -257,6 +451,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C9EFD6FD1BAA764E00E13E9C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9EFD6F91BAA764E00E13E9C /* CubeClockWatch Extension */;
+			targetProxy = C9EFD6FC1BAA764E00E13E9C /* PBXContainerItemProxy */;
+		};
+		C9EFD70F1BAA764E00E13E9C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9EFD6ED1BAA764E00E13E9C /* CubeClockWatch */;
+			targetProxy = C9EFD70E1BAA764E00E13E9C /* PBXContainerItemProxy */;
+		};
 		C9F093161B75AD2C00101C83 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C9F092FE1B75AD2C00101C83 /* CubeClock */;
@@ -265,6 +469,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		C9EFD6F01BAA764E00E13E9C /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C9EFD6F11BAA764E00E13E9C /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		C9F093081B75AD2C00101C83 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -284,6 +496,72 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C9EFD7111BAA764E00E13E9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = CubeClockWatch_Extension;
+				INFOPLIST_FILE = CubeClockWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpapps.CubeClock.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		C9EFD7121BAA764E00E13E9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = CubeClockWatch_Extension;
+				INFOPLIST_FILE = CubeClockWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpapps.CubeClock.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		C9EFD7131BAA764E00E13E9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "CubeClockWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpapps.CubeClock.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		C9EFD7141BAA764E00E13E9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				INFOPLIST_FILE = "CubeClockWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpapps.CubeClock.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
 		C9F0931C1B75AD2C00101C83 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -429,6 +707,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C9EFD7151BAA764E00E13E9C /* Build configuration list for PBXNativeTarget "CubeClockWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9EFD7131BAA764E00E13E9C /* Debug */,
+				C9EFD7141BAA764E00E13E9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C9EFD7171BAA764E00E13E9C /* Build configuration list for PBXNativeTarget "CubeClockWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9EFD7111BAA764E00E13E9C /* Debug */,
+				C9EFD7121BAA764E00E13E9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		C9F092FA1B75AD2B00101C83 /* Build configuration list for PBXProject "CubeClock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

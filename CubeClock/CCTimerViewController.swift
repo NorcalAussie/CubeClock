@@ -38,8 +38,8 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //TimesArray and Time Objects created
     let timesArray = CCTimeArray()
-    var allTimes:NSMutableArray = []
-    var time:CCTime!
+    var allTimes: NSMutableArray = []
+    var time: CCTime!
     
     // MARK: - Device Functions
     override func viewDidLoad() {
@@ -185,7 +185,6 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         } else {
             // Fallback on earlier versions
         }
-        
     }
     
     @IBAction func tapDetected(sender: AnyObject) {
@@ -236,10 +235,9 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
             timerLabel.text = String(format: "%i", arguments: [countdown])
             countdown = countdown - 1
         }
-        
     }
     
-// MARK: - TableView  Functions
+    // MARK: - TableView  Functions
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.timesArray.theArray.count
     }
