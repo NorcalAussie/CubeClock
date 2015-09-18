@@ -22,6 +22,8 @@
 		C9EFD70C1BAA764E00E13E9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9EFD70B1BAA764E00E13E9C /* Assets.xcassets */; };
 		C9EFD7101BAA764E00E13E9C /* CubeClockWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C9EFD6EE1BAA764E00E13E9C /* CubeClockWatch.app */; };
 		C9EFD71A1BAB663700E13E9C /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9EFD7191BAB663600E13E9C /* WatchConnectivity.framework */; };
+		C9EFD71D1BABDF0800E13E9C /* CCRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFD71C1BABDF0800E13E9C /* CCRow.swift */; settings = {ASSET_TAGS = (); }; };
+		C9EFD71F1BABDFDE00E13E9C /* CCListInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFD71E1BABDFDE00E13E9C /* CCListInterfaceController.swift */; settings = {ASSET_TAGS = (); }; };
 		C9F093051B75AD2C00101C83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F093041B75AD2C00101C83 /* AppDelegate.swift */; };
 		C9F0930A1B75AD2C00101C83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9F093081B75AD2C00101C83 /* Main.storyboard */; };
 		C9F0930C1B75AD2C00101C83 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9F0930B1B75AD2C00101C83 /* Images.xcassets */; };
@@ -98,6 +100,8 @@
 		C9EFD70B1BAA764E00E13E9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9EFD70D1BAA764E00E13E9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9EFD7191BAB663600E13E9C /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
+		C9EFD71C1BABDF0800E13E9C /* CCRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCRow.swift; sourceTree = "<group>"; };
+		C9EFD71E1BABDFDE00E13E9C /* CCListInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCListInterfaceController.swift; sourceTree = "<group>"; };
 		C9F092FF1B75AD2C00101C83 /* CubeClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CubeClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F093031B75AD2C00101C83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9F093041B75AD2C00101C83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +181,8 @@
 			isa = PBXGroup;
 			children = (
 				C9EFD7011BAA764E00E13E9C /* InterfaceController.swift */,
+				C9EFD71E1BABDFDE00E13E9C /* CCListInterfaceController.swift */,
+				C9EFD71C1BABDF0800E13E9C /* CCRow.swift */,
 				C9EFD7031BAA764E00E13E9C /* ExtensionDelegate.swift */,
 				C9EFD7051BAA764E00E13E9C /* NotificationController.swift */,
 				C9EFD7071BAA764E00E13E9C /* GlanceController.swift */,
@@ -425,6 +431,8 @@
 			files = (
 				C9EFD7061BAA764E00E13E9C /* NotificationController.swift in Sources */,
 				C9EFD7041BAA764E00E13E9C /* ExtensionDelegate.swift in Sources */,
+				C9EFD71D1BABDF0800E13E9C /* CCRow.swift in Sources */,
+				C9EFD71F1BABDFDE00E13E9C /* CCListInterfaceController.swift in Sources */,
 				C9EFD70A1BAA764E00E13E9C /* ComplicationController.swift in Sources */,
 				C9EFD7021BAA764E00E13E9C /* InterfaceController.swift in Sources */,
 				C9EFD7081BAA764E00E13E9C /* GlanceController.swift in Sources */,
@@ -504,15 +512,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = CubeClockWatch_Extension;
 				INFOPLIST_FILE = CubeClockWatch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mpapps.CubeClock.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -522,10 +533,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = CubeClockWatch_Extension;
 				INFOPLIST_FILE = CubeClockWatch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mpapps.CubeClock.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;

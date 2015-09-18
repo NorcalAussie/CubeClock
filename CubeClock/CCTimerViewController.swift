@@ -101,6 +101,10 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         timerRunning = false
         primed = false
         clearButton.enabled = true
+        
+        if #available(iOS 9.0, *) {
+            sendRecentTimesToWatch()
+        }
     }
     
     func saveData() {
@@ -286,4 +290,15 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         NSLog("Message from watch recieved : %@,", message)
         watchButtonPressed()
     }
+    
+    @available(iOS 9.0, *)
+    func sendRecentTimesToWatch() {
+        let message = ["first": "00:00:00", "second": "00:30:23", "third": "00:23:41"]
+        WCSession.defaultSession().sendMessage(message, replyHandler: { (_: [String : AnyObject]) -> Void in
+            
+            }) { (NSError) -> Void in
+                
+        }
+    }
+
 }

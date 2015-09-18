@@ -15,17 +15,50 @@
                                 <action selector="buttonPressed" destination="AgC-eL-Hgc" id="CsP-QQ-fbK"/>
                             </connections>
                         </button>
+                        <label alignment="center" text="5" id="Tzt-6Q-VjK"/>
                         <timer alignment="center" verticalAlignment="center" textAlignment="center" previewedSeconds="65" id="vuG-Er-qMi">
                             <fontDescription key="font" type="system" weight="thin" pointSize="40"/>
-                            <calendarUnit key="units" second="YES"/>
+                            <calendarUnit key="units" minute="YES" second="YES"/>
                         </timer>
                     </items>
                     <connections>
+                        <outlet property="button" destination="RaV-bM-I0P" id="c99-A7-uw4"/>
+                        <outlet property="countdownLabel" destination="Tzt-6Q-VjK" id="8Bd-Ts-yqy"/>
                         <outlet property="timer" destination="vuG-Er-qMi" id="6o5-Jb-8IH"/>
+                        <segue destination="iKU-hI-ayT" kind="relationship" relationship="nextPage" id="WIq-bX-FbC"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="235" y="347"/>
+        </scene>
+        <!--List Interface Controller-->
+        <scene sceneID="x1l-nl-xQR">
+            <objects>
+                <controller hidesWhenLoading="NO" id="iKU-hI-ayT" customClass="CCListInterfaceController" customModule="CubeClockWatch_Extension">
+                    <items>
+                        <table alignment="left" id="Pau-T6-ezb">
+                            <items>
+                                <tableRow identifier="rowIdentifier" id="ZOM-OP-wl0" customClass="CCRow" customModule="CubeClockWatch_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="bie-tm-mF0">
+                                        <items>
+                                            <label alignment="center" verticalAlignment="center" text="00:00:00" textAlignment="center" id="QXD-Gc-ehC">
+                                                <fontDescription key="font" type="system" pointSize="20"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="timeLabel" destination="QXD-Gc-ehC" id="oaR-E6-6Rh"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="Pau-T6-ezb" id="Rsy-IV-Uq6"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="471" y="346.5"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="BOz-TT-tkC">
