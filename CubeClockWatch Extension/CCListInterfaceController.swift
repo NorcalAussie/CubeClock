@@ -14,8 +14,10 @@ import WatchConnectivity
 class CCListInterfaceController: WKInterfaceController, WCSessionDelegate {
 
     @IBOutlet var table: WKInterfaceTable!
-    
-    var message: [String: AnyObject?] = ["": nil]
+
+    var firstTime = ""
+    var secondTime = ""
+    var thirdTime = ""
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -32,6 +34,8 @@ class CCListInterfaceController: WKInterfaceController, WCSessionDelegate {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        
+        updateRows()
     }
 
     override func didDeactivate() {
@@ -41,20 +45,23 @@ class CCListInterfaceController: WKInterfaceController, WCSessionDelegate {
     
     func updateRows() {
         var row: CCRow? = table.rowControllerAtIndex(0) as? CCRow
-        row?.timeLabel.setText(message["first"]! as? String)
+        row?.timeLabel.setText("firstTime")
         
         row = table.rowControllerAtIndex(1) as? CCRow
-        row?.timeLabel.setText(message["second"]! as? String)
+        row?.timeLabel.setText(secondTime)
         
         row = table.rowControllerAtIndex(2) as? CCRow
-        row?.timeLabel.setText(message["third"]! as? String)
+        row?.timeLabel.setText(thirdTime)
     }
     
     
     func session(session: WCSession, didReceiveMessage theMessage: [String : AnyObject]) {
-        NSLog("Message from watch recieved : %@,", theMessage)
+        NSLog("Message from phone recieved : %@,", theMessage)
+
+        firstTime = theMessage["first"] as! String
+        secondTime = theMessage["second"] as! String
+        thirdTime = theMessage["third"] as! String
         
-        self.message = theMessage
         updateRows()
         
     }

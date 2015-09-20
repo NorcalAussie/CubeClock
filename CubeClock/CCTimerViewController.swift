@@ -21,6 +21,8 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var scrambleLabel: UILabel!
     @IBOutlet weak var hintLabel: UILabel!
     
+    @IBOutlet weak var themeSwitch: UISwitch!
+    
     @IBOutlet weak var clearButton: UIButton!
     
     @IBOutlet weak var timesTableView: UITableView!
@@ -69,7 +71,10 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
         
+        themeSwitch.thumbTintColor = UIColor.blackColor()
+        themeSwitch.tintColor = UIColor.blackColor()
         hintLabel.text = "Tap to begin 5 second countdown"
+        themeSwitch.setOn(false, animated: false)
         updateStats()
         getNewScramble()
 
@@ -142,7 +147,7 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func clearData() {
+    private func clearData() {
         timesArray.theArray.removeAll(keepCapacity: false)
         allTimes.removeAllObjects()
         saveData()
@@ -167,14 +172,36 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         scrambleLabel.text = scramble.scrambleString
     }
     
+    func beginCountdown() {
+        hintLabel.text = ""
+        timerLabel.text = "5"
+        primed = false
+        clearButton.enabled = false
+        countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("countDown:"), userInfo: nil, repeats: true)
+    }
+    
+    func countDown(time: NSTimer) {
+        if (countdown == 0) {
+            time.invalidate()
+            countdown = 4
+            let aSelector : Selector = "updateTime"
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: aSelector, userInfo: nil, repeats: true)
+            startTime = NSDate.timeIntervalSinceReferenceDate()
+            timerRunning = true
+            needsReset = true
+            primed = false
+        } else {
+            timerLabel.text = String(format: "%i", arguments: [countdown])
+            countdown = countdown - 1
+        }
+    }
+    
     func watchButtonPressed() {
         dispatch_async(dispatch_get_main_queue(), {
             // UI Updating code here.
             self.tapDetected(self)
             });
-        
     }
-    
     
     // MARK: - IBActions
     @IBAction func clearPressed(sender: AnyObject) {
@@ -231,29 +258,49 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func beginCountdown() {
-        hintLabel.text = ""
-        timerLabel.text = "5"
-        primed = false
-        clearButton.enabled = false
-        countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("countDown:"), userInfo: nil, repeats: true)
-    }
-    
-    func countDown(time: NSTimer) {
-        if (countdown == 0) {
-            time.invalidate()
-            countdown = 4
-            let aSelector : Selector = "updateTime"
-            timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: aSelector, userInfo: nil, repeats: true)
-            startTime = NSDate.timeIntervalSinceReferenceDate()
-            timerLabel.textColor = UIColor.blackColor()
-            timerRunning = true
-            needsReset = true
-            primed = false
+    @IBAction func themeSwitched(sender: AnyObject) {
+        if (themeSwitch.on) {
+            //When on switch to dark theme
+            self.view.backgroundColor = UIColor.blackColor()
+            
+            timesTableView.backgroundColor = UIColor.blackColor()
+            
+            clearButton.backgroundColor = UIColor.blackColor()
+            
+            timerLabel.textColor = UIColor.whiteColor()
+            averageLabel.textColor = UIColor.whiteColor()
+            averageTenLabel.textColor = UIColor.whiteColor()
+            averageFiveLabel.textColor = UIColor.whiteColor()
+            bestLabel.textColor = UIColor.whiteColor()
+            threeOfFiveLabel.textColor = UIColor.whiteColor()
+            tenOfTwelveLabel.textColor = UIColor.whiteColor()
+            
+            themeSwitch.thumbTintColor = UIColor.blackColor()
+            themeSwitch.onTintColor = UIColor.whiteColor()
+            
+            timesTableView.reloadData()
         } else {
-            timerLabel.text = String(format: "%i", arguments: [countdown])
-            countdown = countdown - 1
+            //Light theme
+            self.view.backgroundColor = UIColor.whiteColor()
+            
+            timesTableView.backgroundColor = UIColor.whiteColor()
+            
+            clearButton.backgroundColor = UIColor.whiteColor()
+            
+            timerLabel.textColor = UIColor.blackColor()
+            averageLabel.textColor = UIColor.blackColor()
+            averageTenLabel.textColor = UIColor.blackColor()
+            averageFiveLabel.textColor = UIColor.blackColor()
+            bestLabel.textColor = UIColor.blackColor()
+            threeOfFiveLabel.textColor = UIColor.blackColor()
+            tenOfTwelveLabel.textColor = UIColor.blackColor()
+            
+            themeSwitch.thumbTintColor = UIColor.blackColor()
+            themeSwitch.tintColor = UIColor.blackColor()
+            
+            timesTableView.reloadData()
         }
+        
     }
     
     // MARK: - TableView  Functions
@@ -268,6 +315,13 @@ class CCTimerViewController: UIViewController, UITableViewDelegate, UITableViewD
             size: 12.0)
         cell.textLabel?.text = String(format: "%d. %@", (self.timesArray.theArray.count - indexPath.row), timesArray.theArray[(timesArray.theArray.count - indexPath.row - 1)].timeString)
         cell.textLabel?.textAlignment = .Center
+        if (themeSwitch.on) {
+            cell.textLabel?.textColor = UIColor.whiteColor()
+            cell.backgroundColor = UIColor.blackColor()
+        } else {
+            cell.textLabel?.textColor = UIColor.blackColor()
+            cell.backgroundColor = UIColor.whiteColor()
+        }
         
         return cell
     }
